@@ -43,7 +43,7 @@ class MyClient(discord.Client):
                 contents[0] = re.sub(r'\W+', '',  contents[0])
 
                 if contents[0] in ['hello', 'sup', 'hi', 'yo']:
-                    await message.channel.send('Hello there {}! Get to know me at `!info`!'.format(message.author.name))
+                    await message.channel.send('Hello there {}! You can get to know me at `!info`.'.format(message.author.name))
                     return
 
                 elif contents[0] in ['py', 'python']:
@@ -81,8 +81,10 @@ class MyClient(discord.Client):
                     embedVar.add_field(name='!info', value='About me xD', inline=False)
 
                 elif contents[0] in ['info']:
-                    pass
-                
+                    embedVar = discord.Embed(title='CSF Botty :wave:', description='A fun discord bot that happens to be help(ish) in python. Run `!pyhelp` to see what I can do!!', color=0xffffff)
+                    embedVar.add_field(name='Done by:', value='Benedict Woo', inline=False)
+                    embedVar.add_field(name='Source code:', value='https://github.com/benwoo1110/csf-botty', inline=False)
+
                 else:
                     embedVar = discord.Embed(title="Sorry idk mate ;(", description='Unknown command, see `!pyhelp` for commands available.', color=0xff8c00)
 
