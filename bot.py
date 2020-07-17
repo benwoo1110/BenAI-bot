@@ -2,11 +2,16 @@
 import discord
 from finddata import Find
 import traceback
+import os
 
 
-# Init the bot
-client = discord.Client()
-
+# Check if token file exist
+if not os.path.isfile('TOKEN.txt'):
+    with open('TOKEN.txt', 'w') as tokenFile:
+        tokenFile.write('INSERT_TOKEN_HERE')
+        tokenFile.close()
+    print('Please key in the bot token in TOKEN.txt and run the program again.')
+    exit()
 
 # Get the bot token
 with open('TOKEN.txt', 'r') as tokenFile:
@@ -56,21 +61,19 @@ class MyClient(discord.Client):
                         if len(info) > 1024: info = info[:1021]+'...'
                         embedVar.add_field(name=name, value=info, inline=False)
 
+                    embedVar.set_footer(text='requested by {} | resource from w3schools.com'.format(message.author.name))
+
                     await message.channel.send(embed=embedVar)
 
             except:
                 traceback.print_exc()
                 embedVar = discord.Embed(title="Oh NooOoO", description='An error occurred. Please try again...', color=0xff0000)
                 await message.channel.send(embed=embedVar)
-                
+            
+
+# Init the bot
+client = discord.Client()
+
 # Enable the bot
 client = MyClient()
 client.run(TOKEN)
-
-
-'''
-embedVar = discord.Embed(title="Title", description="Desc", color=0x00ff00)
-embedVar.add_field(name="Field1", value="hi", inline=False)
-embedVar.add_field(name="Field2", value="hi2", inline=False)
-await message.channel.send(embed=embedVar)
-'''

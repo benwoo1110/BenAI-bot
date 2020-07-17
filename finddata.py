@@ -2,7 +2,7 @@ import json
 from difflib import SequenceMatcher
 import traceback
 
-with open('python_data2.json', 'r') as f:
+with open('python_data.json', 'r') as f:
     python_data = json.load(f)
 
 def similar(a, b):
