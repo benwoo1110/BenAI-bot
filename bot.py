@@ -1,8 +1,9 @@
 # Import modules
 import discord
-from finddata import Find
 import traceback
 import os
+import re
+from finddata import *
 
 
 # Check if token file exist
@@ -15,7 +16,7 @@ if not os.path.isfile('TOKEN.txt'):
 
 # Get the bot token
 with open('TOKEN.txt', 'r') as tokenFile:
-    TOKEN = tokenFile.read().rstrip()
+    TOKEN = tokenFile.read().rstrip().lstrip()
     tokenFile.close()
 
 
@@ -33,42 +34,67 @@ class MyClient(discord.Client):
 
         # Split contents into each words
         contents = message.content.rstrip().split()
-        
-        if contents[0] == ('!hello'):
-            await message.channel.send('Hello there {}!'.format(message.author.name))
+        if len(contents) < 1: return
 
-        elif contents[0] == ('!test'):
-            embedVar = discord.Embed(title="Title", url='https://www.google.com', color=0x00ff00)
-            embedVar.add_field(name="Field1", value="hi", inline=False)
-            embedVar.add_field(name="Field2", value="hi2", inline=False)
-            await message.channel.send(embed=embedVar)
-
-        elif contents[0] == ('!py'):
+        # Commands to run
+        if contents[0].startswith('!'):
             try:
-                if len(contents) >= 3: data = Find(contents[1], ''.join(contents[2:]))
-                else: data = Find(contents[1])
+                # Remove all non alphabets
+                contents[0] = re.sub(r'\W+', '',  contents[0])
 
-                if data == None: 
-                    traceback.print_exc()
-                    embedVar = discord.Embed(title="Hmmmm", description='No such python documentation found ;(\nSee `!pyhelp`.', color=0xff8c00)
-                    await message.channel.send(embed=embedVar)
+                if contents[0] in ['hello', 'sup', 'hi', 'yo']:
+                    await message.channel.send('Hello there {}! Get to know me at `!info`!'.format(message.author.name))
+                    return
 
-                else:
-                    embedVar = discord.Embed(title=data['title'], url=data['url'], color=0x00ff00)
+                elif contents[0] in ['py', 'python']:
                     
-                    for name,info in data['info'].items():
-                        if info == '': continue
-                        if len(info) > 1024: info = info[:1021]+'...'
-                        embedVar.add_field(name=name, value=info, inline=False)
+                        if len(contents) >= 3: data = Find(contents[1], ' '.join(contents[2:]))
+                        elif len(contents) == 2: data = Find(contents[1])
+                        else: data = None
 
-                    embedVar.set_footer(text='requested by {} | resource from w3schools.com'.format(message.author.name))
+                        if data == None: 
+                            embedVar = discord.Embed(title="Hmmmm", description='No such python documentation found ;(\nSee `!pylist`.', color=0xff8c00)
 
-                    await message.channel.send(embed=embedVar)
+                        else:
+                            embedVar = discord.Embed(title=data['title'], url=data['url'], color=0x00ff00)
+                            
+                            for name,info in data['info'].items():
+                                if info == '': continue
+                                if len(info) > 1024: info = info[:1021]+'...'
+                                embedVar.add_field(name=name, value=info, inline=False)
+                
+                elif contents[0] in ['pylist', 'pythonlist']:
+                    if len(contents) >= 2: 
+                        title = 'I know these about `{}`:'.format(contents[1])
+                        list_of_knowledge = getNames(contents[1])
+                    else: 
+                        title = 'I know these:'
+                        list_of_knowledge = getNames()
+                    
+                    embedVar = discord.Embed(title=title, url='https://www.w3schools.com/python/', description=list_of_knowledge, color=0x00ff00)
 
-            except:
+                elif contents[0] in ['pyhelp', 'pythonhelp']:
+                    embedVar = discord.Embed(title='Commands', color=0x0000ff)
+                    embedVar.add_field(name='!hello', value='happy to help ;)', inline=False)
+                    embedVar.add_field(name='!py <name> [section]', value='Find info about python! See `!pylist` for all the things I know!', inline=False)
+                    embedVar.add_field(name='!pylist [name]', value='A list of python knowledge I know. If you want to know the sections for that name, just add the optional parameter `[name]`.', inline=False)
+                    embedVar.add_field(name='!info', value='About me xD', inline=False)
+
+                elif contents[0] in ['info']:
+                    pass
+                
+                else:
+                    embedVar = discord.Embed(title="Sorry idk mate ;(", description='Unknown command, see `!pyhelp` for commands available.', color=0xff8c00)
+
+            except Exception as e:
                 traceback.print_exc()
-                embedVar = discord.Embed(title="Oh NooOoO", description='An error occurred. Please try again...', color=0xff0000)
-                await message.channel.send(embed=embedVar)
+                embedVar = discord.Embed(title="Oh NooOoO!", description='Beep Beep Boop Boop I errored out.```'+str(e)+'```', color=0xff0000)
+            
+            # Set footnote
+            embedVar.set_footer(text='requested by {} | resource from w3schools.com'.format(message.author.name))
+
+            await message.channel.send(embed=embedVar)
+            return
             
 
 # Init the bot
