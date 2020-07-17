@@ -25,7 +25,6 @@ if TOKEN == 'INSERT_TOKEN_HERE':
     exit()
     
 
-
 # Bot class
 class MyClient(discord.Client):
 
@@ -103,11 +102,13 @@ class MyClient(discord.Client):
 
             await message.channel.send(embed=embedVar)
             return
-            
+
 
 # Init the bot
 client = discord.Client()
+client = MyClient()
+
 
 # Enable the bot
-client = MyClient()
-client.run(TOKEN)
+def run():
+    client.run(TOKEN)
