@@ -11,13 +11,19 @@ if not os.path.isfile('TOKEN.txt'):
     with open('TOKEN.txt', 'w') as tokenFile:
         tokenFile.write('INSERT_TOKEN_HERE')
         tokenFile.close()
-    print('Please key in the bot token in TOKEN.txt and run the program again.')
+    print('Please key in the bot token in TOKEN.txt and run the program again. On how to get a bot: https://discordpy.readthedocs.io/en/latest/discord.html')
     exit()
 
 # Get the bot token
 with open('TOKEN.txt', 'r') as tokenFile:
     TOKEN = tokenFile.read().rstrip().lstrip()
     tokenFile.close()
+
+# Token isnt there
+if TOKEN == 'INSERT_TOKEN_HERE':
+    print('Please key in the your bot token in TOKEN.txt and run the program again. On how to get a bot: https://discordpy.readthedocs.io/en/latest/discord.html')
+    exit()
+    
 
 
 # Bot class
