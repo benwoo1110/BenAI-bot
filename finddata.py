@@ -4,8 +4,8 @@ import traceback
 
 
 # Load python docs data
-with open('python_data.json', 'r') as f:
-    python_data = json.load(f)
+with open('code_data.json', 'r') as f:
+    all_data = json.load(f)
 
 
 def similar(a, b):
@@ -34,13 +34,13 @@ def findAllMatch(value:str, matches:list, acc:float = 0.7):
     return matched
 
 
-def Find(name:str, info:str=None):
+def Find(code:str, name:str, info:str=None):
     print(name, info)
     try:
-        matchedName = findMatch(name, python_data.keys())
+        matchedName = findMatch(name, all_data[code].keys())
         if matchedName == None: return None
 
-        get_data = python_data[matchedName].copy()
+        get_data = all_data[code][matchedName].copy()
 
         if info != None:
             info_stuff =  get_data['info']
@@ -48,7 +48,7 @@ def Find(name:str, info:str=None):
             matchedSections = findAllMatch(info, info_stuff.keys())
 
             if matchedSections == []:
-                 get_data['info']['Awwww, Error 404.'] = 'See `!pylist {}` for sections available.'.format(matchedName)
+                 get_data['info']['Awwww, Error 404.'] = 'See `!list {}` for sections available.'.format(matchedName)
 
             else:
                 for section in matchedSections:
@@ -60,11 +60,17 @@ def Find(name:str, info:str=None):
         traceback.print_stack()
         return
 
-def getNames(name:str = None):
-    if name == None: return ', '.join(list(python_data.keys())) + '\n\nRun `!py <name>` to see!'
+def getNames(code:str = None, name:str = None):
+    if code == None: return ', '.join(list(all_data.keys())) + '\n\nRun `!<code> <topic>` to see! For list of topics, run `!list <code>`.'
+    
+    else: 
+        if not code in all_data: return "Actually... idk whats {}... See `!list` for things I know!".format(code)
+        elif name == None: return ', '.join(list(all_data[code].keys())) + '\n\nRun `!{0} <name>` to see! For what the section contains, run `!list {0}`.'.format(code)
 
-    else:
-        matchedName = findMatch(name, python_data.keys())
-        if matchedName == None: return "Actually... i dont know... See `!pylist` for things I know!"
-        
-        return ', '.join(list(python_data[matchedName]['info'].keys())) + '\n\nRun `!py {} [section]` to see!'.format(name)
+        else:
+            matchedName = findMatch(name, all_data[code].keys())
+            if matchedName == None: return "Actually... idk whats {}... See `!list {}` for things I know!".format(name, code)
+            return ', '.join(list(all_data[code][matchedName]['info'].keys())) + '\n\nRun `!{} {} [section]` to see!'.format(code, name)
+
+def listCode():
+    return list(all_data.keys())

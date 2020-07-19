@@ -3,7 +3,8 @@ import discord
 import traceback
 import os
 import re
-from finddata import *
+from finddata import getNames, Find
+from commands import runCommand
 
 
 # Check if token file exist
@@ -45,57 +46,17 @@ class MyClient(discord.Client):
             # Commands to run
             if contents[0].startswith('!'):
                     # Remove all non alphabets
-                    contents[0] = re.sub(r'\W+', '',  contents[0])
+                    contents[0] = contents[0].split('!')[-1].lower()
 
-                    if contents[0] in ['hello', 'sup', 'hi', 'yo']:
-                        await message.channel.send('Hello there {}! You can get to know me at `!info`.'.format(message.author.name))
-                        return
-
-                    elif contents[0] in ['py', 'python']:
-                        
-                            if len(contents) >= 3: data = Find(contents[1], ' '.join(contents[2:]))
-                            elif len(contents) == 2: data = Find(contents[1])
-                            else: data = None
-
-                            if data == None: 
-                                embedVar = discord.Embed(title="Hmmmm", description='No such python documentation found ;(\nSee `!pylist`.', color=0xff8c00)
-
-                            else:
-                                embedVar = discord.Embed(title=data['title'], url=data['url'], color=0x00ff00)
-                                
-                                for name,info in data['info'].items():
-                                    if info == '': continue
-                                    if len(info) > 1024: info = info[:1021]+'...'
-                                    embedVar.add_field(name=name, value=info, inline=False)
+                    cmd_output = runCommand(message, contents)
                     
-                    elif contents[0] in ['pylist', 'pythonlist']:
-                        if len(contents) >= 2: 
-                            title = 'I know these about `{}`:'.format(contents[1])
-                            list_of_knowledge = getNames(contents[1])
-                        else: 
-                            title = 'I know these:'
-                            list_of_knowledge = getNames()
-                        
-                        embedVar = discord.Embed(title=title, url='https://www.w3schools.com/python/', description=list_of_knowledge, color=0x00ff00)
+                    if cmd_output['type'] == 'embed':
+                        # Set footnote
+                        cmd_output['data'].set_footer(text='requested by {} | resource from w3schools.com'.format(message.author.name))
+                        await message.channel.send(embed=cmd_output['data'])
 
-                    elif contents[0] in ['pyhelp', 'pythonhelp']:
-                        embedVar = discord.Embed(title='Commands', color=0x0000ff)
-                        embedVar.add_field(name='!hello', value='happy to help ;)', inline=False)
-                        embedVar.add_field(name='!py <name> [section]', value='Find info about python! See `!pylist` for all the things I know!', inline=False)
-                        embedVar.add_field(name='!pylist [name]', value='A list of python knowledge I know. If you want to know the sections for that name, just add the optional parameter `[name]`.', inline=False)
-                        embedVar.add_field(name='!info', value='About me xD', inline=False)
-
-                    elif contents[0] in ['info']:
-                        embedVar = discord.Embed(title='CSF Botty :wave:', description='A fun discord bot that happens to be help(ish) in python. Run `!pyhelp` to see what I can do!!', color=0xffffff)
-                        embedVar.add_field(name='Done by:', value='Benedict Woo', inline=False)
-                        embedVar.add_field(name='Source code:', value='https://github.com/benwoo1110/csf-botty', inline=False)
-
-                    else:
-                        embedVar = discord.Embed(title="Sorry idk mate ;(", description='Unknown command, see `!pyhelp` for commands available.', color=0xff8c00)
-
-                    # Set footnote
-                    embedVar.set_footer(text='requested by {} | resource from w3schools.com'.format(message.author.name))
-                    await message.channel.send(embed=embedVar)
+                    elif cmd_output['type'] == 'text':
+                        await message.channel.send(cmd_output['data'])
 
         except Exception as e:
             traceback.print_exc()
