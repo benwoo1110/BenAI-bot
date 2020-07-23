@@ -105,7 +105,7 @@ all_data = {}
 
 # Get html of the webpage
 session = requests.Session()
-page_names = ['python', 'css', 'js', 'html', 'cpp', 'cs', 'sql', 'react', 'jquery', 'php']
+page_names = ['python', 'css', 'js', 'html', 'cpp', 'cs', 'sql', 'react', 'jquery', 'php', 'java']
 
 # Get all data for each page
 for page_name in page_names:

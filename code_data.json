@@ -2884,7 +2884,7 @@
                 "JavaScript Stores Dates as Milliseconds": "JavaScript stores dates as number of milliseconds since January 01, 1970, 00:00:00 UTC (Universal Time Coordinated).Now the time is:  milliseconds past January 01, 1970",
                 "new Date(milliseconds)": "new Date(milliseconds) creates a new date object as zero time plus milliseconds:```js\nvar d = new Date(0);```01 January 1970 plus 100 000 000 000 milliseconds is approximately 03 March 1973:```js\nvar d = new Date(100000000000);```January 01 1970 minus 100 000 000 000 milliseconds is approximately October 31 1966:```js\nvar d = new Date(-100000000000);``````js\nvar d = new Date(86400000);```",
                 "Date Methods": "When a Date object is created, a number of methods allow you to operate on it.Date methods allow you to get and set the year, month, day, hour, minute, second, and millisecond of date objects, using either local time or UTC (universal, or GMT) time.",
-                "Displaying Dates": "JavaScript will (by default) output dates in full text string format:```js\n```When you display a date object in HTML, it is automatically converted to a string, with the toString() method.```js\nd = new Date();\n\r\ndocument.getElementById(\"demo\").innerHTML = d;```The toUTCString() method converts a date to a UTC string (a date display standard).```js\nvar d = new Date();\n\r\ndocument.getElementById(\"demo\").innerHTML = d.toUTCString();```The toDateString() method converts a date to a more readable format:```js\nvar d = new Date();\n\r\ndocument.getElementById(\"demo\").innerHTML = d.toDateString();```"
+                "Displaying Dates": "JavaScript will (by default) output dates in full text string format:```js\n```When you display a date object in HTML, it is automatically converted to a string, with the toString() method.```js\nd = new Date();\n\r\ndocument.getElementById(\"demo\").innerHTML = d;```The toUTCString() method converts a date to a UTC string (a date display standard).```js\nvar d = new Date();\n\r\ndocument.getElementById(\"demo\").innerHTML = d.toUTCString();```The toDateString() method converts a date to a more readable format:```js\nvar d = new Date();\n\r\ndocument.getElementById(\"demo\").innerHTML = d.toDateString();```The toISOString() method converts a date to a string, using the ISO standard format:```js\nvar d = new Date();\n\r\ndocument.getElementById(\"demo\").innerHTML = d.toISOString();```"
             }
         },
         "dateformats": {
@@ -3267,7 +3267,7 @@
             "info": {
                 "Avoid Global Variables": "Minimize the use of global variables.This includes all data types, objects, and functions.Global variables and functions can be overwritten by other scripts.Use local variables instead, and learn how to use closures. ",
                 "Always Declare Local Variables": "All variables used in a function should be declared as local variables. Local variables must be declared with the var keyword or the let keyword, otherwise they will become global variables.",
-                "Declarations on Top": "It is a good coding practice to put all declarations at the top of each script or function.This will:```js\n// Declare at the beginning\nvar firstName, lastName, price, discount, fullPrice;\n\n// Use later\nfirstName = \"John\";\nlastName = \"Doe\";\nprice = 19.90;\n\r\ndiscount = 0.10;\nfullPrice = price + discount;```This also goes for loop variables:```js\n// Declare at the beginning\nvar i;\n// Use later\nfor (i = 0; i < 5; i++) \r\n {```",
+                "Declarations on Top": "It is a good coding practice to put all declarations at the top of each script or function.This will:```js\n// Declare at the beginning\nvar firstName, lastName, price, discount, fullPrice;\n\n// Use later\nfirstName = \"John\";\nlastName = \"Doe\";\nprice = 19.90;\n\r\ndiscount = 0.10;\nfullPrice = price - discount;```This also goes for loop variables:```js\n// Declare at the beginning\nvar i;\n// Use later\nfor (i = 0; i < 5; i++) \r\n {```",
                 "Initialize Variables": "It is a good coding practice to initialize variables when you declare them.This will:```js\n// Declare and initiate at the beginning\nvar firstName = \"\",\nlastName = \"\",\nprice = 0,\ndiscount = 0,\nfullPrice = 0,\nmyArray = [],\nmyObject = {};```",
                 "Never Declare Number, String, or Boolean Objects": "Always treat numbers, strings, or booleans as primitive values. Not as objects.Declaring these types as objects, slows down execution speed, and produces nasty side effects:```js\nvar x = \"John\";             \n\r\nvar y = new String(\"John\");\n\r\n(x === y) // is false because x is a string and y is an object.```Or even worse:```js\nvar x = new String(\"John\");             \n\r\nvar y = new String(\"John\");\n\r\n(x == y) // is false because you cannot compare objects.```",
                 "Don't Use new Object()": "```js\nvar x1 = {};           // new object\n\r\nvar x2 = \"\";           // new primitive string\n\r\nvar x3 = 0;            // new primitive number\n\r\nvar x4 = false;        // new primitive boolean\n\r\nvar x5 = [];           // new array object\n\r\nvar x6 = /()/;         // new regexp object\n\r\nvar x7 = function(){}; // new function object```",
@@ -4846,10 +4846,10 @@
             "title": "HTML Forms",
             "url": "https://www.w3schools.com/html/html_forms.asp",
             "info": {
-                "The <form> Element": "The HTML <form> element defines a form that is used to collect user input:```html\n<form>\n\r\n .\nform elements\n\r\n .\n\r\n </form>```An HTML form contains form elements.Form elements are different types of input elements, like: text fields, checkboxes, radio buttons, submit buttons, and more.",
-                "The <input> Element": "The <input> element is the most important form element. The <input> element is displayed in several ways, depending on the type attribute.Here are some examples:",
+                "The <form> Element": "The HTML <form> element is used to create an HTML form for user input:```html\n<form>\n\r\n .\nform elements\n\r\n .\n\r\n </form>```Form elements are different types of input elements, like: text fields, checkboxes, radio buttons, submit buttons, and more.Allthe different form elements are covered in the next chapter:HTML Form Elements.",
+                "The <input> Element": "The <input> element is the most important form element. An <input> element can be displayed in many ways, depending on the type attribute.Here are some examples:",
                 "Text Fields": "<input type=\"text\"> defines a single-line input field for text input.```html\n<form>\n  <label for=\"fname\">First name:</label><br>\n  <input type=\"text\" id=\"fname\" name=\"fname\"><br>\n  <label for=\"lname\">Last name:</label><br>\n  <input type=\"text\" id=\"lname\" name=\"lname\">\n</form>```This is how it will look like in a browser:",
-                "The <label> Element": "Notice the use of the <label> element in the example above. The <label> tag defines a label for many form elements.The <label> element is useful for screen-reader users, because the screen-reader will read out loud the label when the user is focused on the input element.The <label> element also help users who have difficulty clicking on very small regions (such as radio buttons or checkboxes) - because when the user clicks the text within the <label> element, it toggles the radio button/checkbox.The for attribute of the <label> tag should be equal to the id attribute of the <input> element to bind them together. ",
+                "The <label> Element": "Notice the use of the <label> element in the example above. The <label> tag defines a label for many form elements.The <label> element is useful for screen-reader users, because the screen-reader will read out loud the label when the user is focused on the input element.The <label> element also help users who have difficulty clicking on very small regions (such as radio buttons or checkboxes) - because when the user clicks the text within the <label> element, it toggles the radio button/checkbox.The for attribute of the <label> tag should be equal to the id attribute of the <input>  element to bind them together. ",
                 "Radio Buttons": "<input type=\"radio\"> defines a radio button.Radio buttons let a user select ONE of a limited number of choices.```html\n<form>\n  <input type=\"radio\" id=\"male\" name=\"gender\" value=\"male\">\n  <label for=\"male\">Male</label><br>\n  <input type=\"radio\" id=\"female\" name=\"gender\" value=\"female\">\n  <label for=\"female\">Female</label><br>\n  <input type=\"radio\" id=\"other\" name=\"gender\" value=\"other\">\n  <label for=\"other\">Other</label>\n</form>```This is how the HTML code above will be displayed in a browser:",
                 "The Submit Button": "<input type=\"submit\"> defines a button for submitting the form data to a form-handler.The form-handler is typically a page on the server with a script for processing input data.The form-handler is specified in the form's action attribute.```html\n<form action=\"/action_page.php\">\n  <label for=\"fname\">First name:</label><br>\n  <input type=\"text\" id=\"fname\" name=\"fname\" value=\"John\"><br>\n  <label for=\"lname\">Last name:</label><br>\n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>\n  <input type=\"submit\" value=\"Submit\">\n</form>```This is how the HTML code above will be displayed in a browser:",
                 "The Action Attribute": "The action attribute defines the action to be performed when the form is submitted.Usually, the form data is sent to a page on the server when the user clicks on the submit button.In the example above, the form data is sent to a page on the server called \"/action\\_page.php\". This page contains a server-side script that handles the form data:```html\n<form action=\"/action_page.php\">```If the action attribute is omitted, the action is set to the current page.",
@@ -4858,15 +4858,18 @@
                 "When to Use GET?": "The default HTTP method when submitting form data is GET.However, when GET is used, the form data will be visible in the page's address field:```html\n/action_page.php?firstname=John&lastname=Doe```Notes on GET: ",
                 "When to Use POST?": "Always use POST if the form data contains sensitive or personal information. The POST method does not display the form data in the page address field.Notes on POST: ",
                 "The Name Attribute": "Each input field must have a name attribute to be submitted.If the name attribute is omitted, the data of that input field will not be sent at all.```html\n<form action=\"/action_page.php\">\n  <label for=\"fname\">First name:</label><br>\n  <input type=\"text\" id=\"fname\" value=\"John\"><br><br>\n  <input type=\"submit\" value=\"Submit\">\n</form>```",
-                "HTML Exercises": "Here is the list of all <form> attributes:"
+                "HTML Exercises": "",
+                "List of All <form> Attributes": ""
             }
         },
         "formelements": {
             "title": "HTML Form Elements",
             "url": "https://www.w3schools.com/html/html_form_elements.asp",
             "info": {
-                "The <input> Element": "One of the most used form element is the <input> element. The <input> element can be displayed in several ways, depending on the type attribute.```html\n<input type=\"text\" id=\"firstname\" name=\"firstname\">```Allthe different input types are covered in the next chapter:HTML Input Types.",
-                "The <select> Element": "The <select> element defines a drop-down list:```html\n<select id=\"cars\" name=\"cars\">\n  <option value=\"volvo\">Volvo</option>\n\r\n <option value=\"saab\">Saab</option>\n  <option value=\"fiat\">Fiat</option>\n\r\n <option value=\"audi\">Audi</option>\n</select>```The <option> elements defines an option that can be selected.By default, the first item in the drop-down list is selected.To define a pre-selected option, add the selected attribute to the option: ```html\n<option value=\"fiat\" selected>Fiat</option>```Use the size attribute to specify the number of visible values:```html\n<select name=\"cars\" size=\"3\">\n  <option value=\"volvo\">Volvo</option>\n\r\n <option value=\"saab\">Saab</option>\n  <option value=\"fiat\">Fiat</option>\n\r\n <option value=\"audi\">Audi</option>\n</select>```Use the multiple attribute to allow the user to select more than one value:",
+                "The HTML <form> Elements": "The <form> element can contain one or more of the following form elements:",
+                "The <input> Element": "One of the most used form element is the <input> element. The <input> element can be displayed in several ways, depending on the type attribute.```html\n<label for=\"fname\">First name:</label>\n<input type=\"text\" id=\"firstname\" name=\"firstname\">```Allthe different input types are covered in the next chapter:HTML Input Types.",
+                "The <label> Element": "Notice the use of the <label> element in the example above. The <label> tag defines a label for many form elements.The <label> element is useful for screen-reader users, because the screen-reader will read out loud the label when the user is focused on the input element.The <label> element also help users who have difficulty clicking on very small regions (such as radio buttons or checkboxes) - because when the user clicks the text within the <label> element, it toggles the radio button/checkbox.The for attribute of the <label> tag should be equal to the id attribute of the <input>  element to bind them together. ",
+                "The <select> Element": "The <select> element defines a drop-down list:```html\n<label for=\"cars\">Choose a car:</label>\n<select id=\"cars\" name=\"cars\">\n  <option value=\"volvo\">Volvo</option>\n\r\n <option value=\"saab\">Saab</option>\n  <option value=\"fiat\">Fiat</option>\n\r\n <option value=\"audi\">Audi</option>\n</select>```The <option> elements defines an option that can be selected.By default, the first item in the drop-down list is selected.To define a pre-selected option, add the selected attribute to the option: ```html\n<option value=\"fiat\" selected>Fiat</option>```Use the size attribute to specify the number of visible values:```html\n<label for=\"cars\">Choose a car:</label>\n<select id=\"cars\" name=\"cars\" size=\"3\">\n  <option value=\"volvo\">Volvo</option>\n\r\n <option value=\"saab\">Saab</option>\n  <option value=\"fiat\">Fiat</option>\n\r\n <option value=\"audi\">Audi</option>\n</select>```Use the multiple attribute to allow the user to select more than one value:",
                 "The <textarea> Element": "The <textarea> element defines a multi-line input field (a text area):```html\n<textarea name=\"message\" rows=\"10\" cols=\"30\">\nThe cat was playing in the garden.\n</textarea>```The rows attribute specifies the visible number of lines in a text area.The cols attribute specifies the visible width of a text area.This is how the HTML code above will be displayed in a browser:You can also define the size of the text area by using CSS:```html\n<textarea name=\"message\" style=\"width:200px; height:600px;\">\nThe cat was playing in the garden.\n</textarea>```",
                 "The <button> Element": "The <button> element defines a clickable button:```html\n<button type=\"button\" \r\n onclick=\"alert('Hello World!')\">Click Me!</button>```This is how the HTML code above will be displayed in a browser:",
                 "The <fieldset> and <legend> Elements": "The <fieldset> element is used to group related data in a form.The <legend> element defines a caption for the <fieldset>element.```html\n<form action=\"/action_page.php\">\n  <fieldset>\n    <legend>Personalia:</legend>\n    <label for=\"fname\">First name:</label><br>\n    <input type=\"text\" id=\"fname\" name=\"fname\" value=\"John\"><br>\n    <label for=\"lname\">Last name:</label><br>\n    <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>\n    <input type=\"submit\" value=\"Submit\">\n  </fieldset>\n</form>```This is how the HTML code above will be displayed in a browser:",
@@ -11043,7 +11046,7 @@
             "title": "array_udiff_assoc()\r\n    ",
             "url": "https://www.w3schools.com/php/func_array_udiff_assoc.asp",
             "info": {
-                "Definition and Usage": "The array\\_udiff() function compares the keys and values of two or more arrays, and returns the differences.Note: This function uses a built-in function to compare the keys, and a user-defined function to compare the values!This function compares the keys and values of two (or more) arrays, and return an array that contains the entries from array1 that are not present in array2 or array3, etc.",
+                "Definition and Usage": "The array\\_udiff\\_assoc() function compares the keys and values of two or more arrays, and returns the differences.Note: This function uses a built-in function to compare the keys, and a user-defined function to compare the values!This function compares the keys and values of two (or more) arrays, and return an array that contains the entries from array1 that are not present in array2 or array3, etc.",
                 "Syntax": "",
                 "Parameter Values": "",
                 "Technical Details": ""
@@ -17524,6 +17527,870 @@
                 "Europe": "",
                 "Indian": "",
                 "Pacific": ""
+            }
+        }
+    },
+    "java": {
+        "getstarted": {
+            "title": "Java Get Started",
+            "url": "https://www.w3schools.com/java/java_getstarted.asp",
+            "info": {
+                "Java Install": "Some PCs might have Java already installed.To check if you have Java installed on a Windows PC, search in the start bar for Java or type the following in Command Prompt (cmd.exe):```java\nC:\\Users\\Your Name>java -version```If Java is installed, you will see something like this (depending on version):If you do not have Java installed on your computer, you can download it for free from oracle.com.Note: In this tutorial, we will write Java code in a text editor. However, it is possible to write Java in an Integrated Development Environment, such as IntelliJ IDEA, Netbeans or Eclipse, which are particularly useful when managing larger collections of Java files.",
+                "Setup for Windows": "To install Java on Windows:",
+                "Java Quickstart": "In Java, every application begins with a class name, and that class must match the filename.Let's create our first Java file, called MyClass.java, which can be done in any text editor (like Notepad).The file should contain a \"Hello World\" message, which is written with the following code:```java\npublic class MyClass {public static void main(String[] args) {  System.out.println(\"Hello World\");}\r\n}```Don't worry if you don't understand the code above - we will discuss it in detail in later chapters. For now, focus on how to run the code above.Save the code in Notepad as \"MyClass.java\". Open Command Prompt (cmd.exe), navigate to the directory where you saved your file, and type \"javac MyClass.java\":```java\nC:\\Users\\Your Name>javac MyClass.java```This will compile your code. If there are no errors in the code, the command prompt will take you to the next line. Now, type \"java MyClass\" to run the file:```java\nC:\\Users\\Your Name>java MyClass```The output should read:Congratulations! You have written and executed your first Java program."
+            }
+        },
+        "syntax": {
+            "title": "Java Syntax",
+            "url": "https://www.w3schools.com/java/java_syntax.asp",
+            "info": {
+                "Java Syntax": "In the previous chapter, we created a Java file called MyClass.java, and we used the following code to print \"Hello World\" to the screen:```java\npublic class MyClass {public static void main(String[] args) {  System.out.println(\"Hello World\");}\r\n}```Every line of code that runs in Java must be inside a class.In our example, we named the class MyClass. A class should always start with an uppercase first letter.Note: Java is case-sensitive: \"MyClass\" and \"myclass\" has different meaning.The name of the java file must match the class name.When saving the file, save it using the class name and add \".java\" to the end of the filename. To run the example above on your computer, make sure that Java is properly installed: Go to the Get Started Chapter for how to install Java. The output should be:",
+                "The main Method": "The main() method is required and you will see it in every Java program:```java\npublic static void main(String[] args)```Any code inside the main() method will be executed. You don't have to understand the keywords before and after main. You will get to know them bit by bit while reading this tutorial.For now, just remember that every Java program has a class name which must match the filename, and that every program must contain the main() method.",
+                "System.out.println()": "Inside the main() method, we can use the println() method to print a line of text to the screen:```java\npublic static void main(String[] args) {System.out.println(\"Hello World\");\r\n}```"
+            }
+        },
+        "comments": {
+            "title": "Java Comments",
+            "url": "https://www.w3schools.com/java/java_comments.asp",
+            "info": {
+                "Java Comments": "Comments can be used to explain Java code, and to make it more readable. It can also be used to prevent execution when testing alternative code.Single-line comments start with two forward slashes (//).Any text between // and the end of the line is ignored by Java (will not be executed).This example uses a single-line comment before a line of code:```java\n// This is a comment\r\nSystem.out.println(\"Hello World\");```This example uses a single-line comment at the end of a line of code:```java\nSystem.out.println(\"Hello World\"); // This is a comment```",
+                "Java Multi-line Comments": "Multi-line comments start with /\\* and ends with \\*/.Any text between /\\* and \\*/ will be ignored by Java.This example uses a multi-line comment (a comment block) to explain the code:```java\n/* The code below will print the words Hello World\r\nto the screen, and it is amazing */\r\nSystem.out.println(\"Hello World\");```"
+            }
+        },
+        "variables": {
+            "title": "Java Variables",
+            "url": "https://www.w3schools.com/java/java_variables.asp",
+            "info": {
+                "Java Variables": "Variables are containers for storing data values. In Java, there are different types of variables, for example:",
+                "Declaring (Creating) Variables": "To create a variable, you must specify the type and assign it a value:```java\ntype variable = value;```Where type is one of Java's types (such as int or String), and variable is the name of the variable (such as x orname). The equal sign is used to assign values to the variable.To create a variable that should store text, look at the following example:```java\nString name = \"John\";\r\nSystem.out.println(name);```To create a variable that should store a number, look at the following example:```java\nint myNum = 15;\r\nSystem.out.println(myNum);```You can also declare a variable without assigning the value, and assign the value later:```java\nint myNum;\r\nmyNum = 15;\r\nSystem.out.println(myNum);```Note that if you assign a new value to an existing variable, it will overwrite the previous value:```java\nint myNum = 15;\r\nmyNum = 20;  // myNum is now 20\r\nSystem.out.println(myNum);```",
+                "Final Variables": "However, you can add the final keyword if you don't want others (or yourself) to overwrite existing values (this will declare the variable as \"final\" or \"constant\", which means unchangeable and read-only):```java\nfinal int myNum = 15;\r\nmyNum = 20;  // will generate an error: cannot assign a value to a final variable```",
+                "Other Types": "A demonstration of how to declare variables of other types:```java\nint myNum = 5;\r\nfloat myFloatNum = 5.99f;\r\nchar myLetter = 'D';\r\nboolean myBool = true;\r\nString myText = \"Hello\";```",
+                "Display Variables": "The println() method is often used to display variables.To combine both text and a variable, use the + character:```java\nString name = \"John\";\r\nSystem.out.println(\"Hello \" + name);```You can also use the + character to add a variable to another variable:```java\nString firstName = \"John \";\r\nString lastName = \"Doe\";\r\nString fullName = firstName + lastName;\r\nSystem.out.println(fullName);```For numeric values, the + character works as a mathematical operator (notice that we use int (integer) variables here):```java\nint x = 5;\r\nint y = 6;\r\nSystem.out.println(x + y); // Print the value of x + y```From the example above, you can expect:",
+                "Declare Many Variables": "To declare more than one variable of the same type, use a comma-separated list:```java\nint x = 5, y = 6, z = 50;\r\nSystem.out.println(x + y + z);```",
+                "Java Identifiers": "All Java variables must beidentified with unique names.These unique names are called identifiers.Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).Note: It is recommended to use descriptive names in order to create understandable and maintainable code:```java\n// Good\r\nint minutesPerHour = 60;\r\n\r\n// OK, but not so easy to understand what m actually is\r\nint m = 60;```The general rules for constructing names for variables (unique identifiers) are:"
+            }
+        },
+        "datatypes": {
+            "title": "Java Data Types",
+            "url": "https://www.w3schools.com/java/java_data_types.asp",
+            "info": {
+                "Java Data Types": "As explained in the previous chapter, a variable in Java must be a specified data type:```java\nint myNum = 5;               // Integer (whole number)\r\nfloat myFloatNum = 5.99f;    // Floating point number\r\nchar myLetter = 'D';         // Character\r\nboolean myBool = true;       // Boolean\r\nString myText = \"Hello\";     // String```Data types are divided into two groups:",
+                "Primitive Data Types": "A primitive data type specifies the size and type of variable values, and it has no additional methods.There are eight primitive data types in Java:",
+                "Numbers": "Primitive number types are divided into two groups:Integer types stores whole numbers, positive or negative (such as 123 or -456), without decimals. Valid types are byte, short, int and long. Which type you should use, depends on the numeric value.Floating point types represents numbers with a fractional part, containing one or more decimals. There are two types: float and double.",
+                "Integer Types": "The byte data type can store whole numbers from -128 to 127. This can be used instead of int or other integer types to save memory when you are certain that the value will be within -128 and 127:```java\nbyte myNum = 100;\r\nSystem.out.println(myNum);```The short data type can store whole numbers from -32768 to 32767:```java\nshort myNum = 5000;\r\nSystem.out.println(myNum);```The int data type can store whole numbers from -2147483648 to 2147483647.  In general, and in our tutorial, the int data type is the preferred data type when we create variables with a numeric value.```java\nint myNum = 100000;\r\nSystem.out.println(myNum);```The long data type can store whole numbers from -9223372036854775808 to 9223372036854775807. This is used when int is not large enough to store the value. Note that you should end the value with an \"L\":```java\nlong myNum = 15000000000L;\r\nSystem.out.println(myNum);```",
+                "Floating Point Types": "You should use a floating point type whenever you need a number with a decimal, such as 9.99 or 3.14515.The float data type can store fractional numbers from 3.4e\u2212038 to 3.4e+038. Note that you should end the value with an \"f\":```java\nfloat myNum = 5.75f;\r\nSystem.out.println(myNum);```The double data type can store fractional numbers from 1.7e\u2212308 to 1.7e+308. Note that you should end the value with a \"d\":```java\ndouble myNum = 19.99d;\r\nSystem.out.println(myNum);```A floating point number can also be a scientific number with an \"e\" to indicate the power of 10:```java\nfloat f1 = 35e3f;\r\ndouble d1 = 12E4d;\r\nSystem.out.println(f1);\r\nSystem.out.println(d1);```",
+                "Booleans": "A boolean data type is declared with the boolean keyword and can only take the values true or false:```java\nboolean isJavaFun = true;\r\nboolean isFishTasty = false;\r\nSystem.out.println(isJavaFun);     // Outputs true\r\nSystem.out.println(isFishTasty);   // Outputs false```Boolean values are mostly used for conditional testing, which you will learn more about in a later chapter.",
+                "Characters": "The char data type is used to store a single character. The character must be surrounded by single quotes, like 'A' or 'c':```java\nchar myGrade = 'B';\r\nSystem.out.println(myGrade);```Alternatively, you can use ASCII values to display certain characters:```java\nchar a = 65, b = 66, c = 67;\r\nSystem.out.println(a);\r\nSystem.out.println(b);\r\nSystem.out.println(c);```Tip: A list of all ASCII values can be found in our ASCII Table Reference.",
+                "Strings": "The String data type is used to store a sequence of characters (text). String values must be surrounded by double quotes:```java\nString greeting = \"Hello World\";\r\nSystem.out.println(greeting);```",
+                "Non-Primitive Data Types": "Non-primitive data types are called reference types because they refer to objects.The main difference between primitive and non-primitive data types are:Examples of non-primitive types are Strings, Arrays, Classes, Interface, etc. You will learn more about these in a later chapter."
+            }
+        },
+        "typecasting": {
+            "title": "Java Type Casting",
+            "url": "https://www.w3schools.com/java/java_type_casting.asp",
+            "info": {
+                "Java Type Casting": "Type casting is when you assign a value of one primitive data type to another type.In Java, there are two types of casting:",
+                "Widening Casting": "Widening casting is done automatically when passing a smaller size type to a larger size type:```java\npublic class MyClass {public static void main(String[] args) {  int myInt = 9;  double myDouble = myInt; // Automatic casting: int to double\r\n  System.out.println(myInt);      // Outputs 9  System.out.println(myDouble);   // Outputs 9.0}\r\n}```",
+                "Narrowing Casting": "Narrowing casting must be done manually by placing the type in parentheses in front of the value:```java\npublic class MyClass {public static void main(String[] args) {  double myDouble = 9.78;  int myInt = (int) myDouble; // Manual casting: double to int\r\n  System.out.println(myDouble);   // Outputs 9.78  System.out.println(myInt);      // Outputs 9}\r\n}```"
+            }
+        },
+        "operators": {
+            "title": "Java Operators",
+            "url": "https://www.w3schools.com/java/java_operators.asp",
+            "info": {
+                "Java Operators": "Operators are used to perform operations on variables and values.In the example below, we use the+ operator to add together two values:```java\nint x = 100 + 50;```Although the + operator is often used to add together two values, like in the example above, it can also be used to add together a variable and a value, or a variable and another variable:```java\nint sum1 = 100 + 50;        // 150 (100 + 50)\r\nint sum2 = sum1 + 250;      // 400 (150 + 250)\r\nint sum3 = sum2 + sum2;     // 800 (400 + 400)```Java divides the operators into the following groups:",
+                "Arithmetic Operators": "Arithmetic operators are used to perform common mathematical operations.",
+                "Java Assignment Operators": "Assignment operators are used to assign values to variables.In the example below, we use the assignment operator (=) to assign the value 10 to a variable called x:```java\nint x = 10;```The addition assignment operator (+=) adds a value to a variable:```java\nint x = 10;\r\nx += 5;```A list of all assignment operators:",
+                "Java Comparison Operators": "Comparison operators are used to compare two values:",
+                "Java Logical Operators": "Logical operators are used to determine the logic between variables or values:",
+                "Java Bitwise Operators": "Bitwise operators are used to perform binary logic with the bits of an integer or longinteger."
+            }
+        },
+        "strings": {
+            "title": "Java Strings",
+            "url": "https://www.w3schools.com/java/java_strings.asp",
+            "info": {
+                "Java Strings": "Strings are used for storing text.A String variable contains a collection of characters surrounded by double quotes:```java\nString greeting = \"Hello\";```",
+                "String Length": "A String in Java is actually an object, which contain methods that can perform certain operations on strings. For example, the length of a string can be found with the length() method:```java\nString txt = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r\nSystem.out.println(\"The length of the txt string is: \" + txt.length());```",
+                "More String Methods": "There are many string methods available, for example toUpperCase() and toLowerCase():```java\nString txt = \"Hello World\";\r\nSystem.out.println(txt.toUpperCase());   // Outputs \"HELLO WORLD\"\r\nSystem.out.println(txt.toLowerCase());   // Outputs \"hello world\"```",
+                "Finding a Character in a String": "The indexOf() method returns the index (the position) of the first occurrence of a specified text in a string (including whitespace):```java\nString txt = \"Please locate where 'locate' occurs!\";\r\nSystem.out.println(txt.indexOf(\"locate\")); // Outputs 7```",
+                "String Concatenation": "The + operator can be used between strings to combine them. This is called concatenation:```java\nString firstName = \"John\";\r\nString lastName = \"Doe\";\r\nSystem.out.println(firstName + \" \" + lastName);```You can also use the concat() method to concatenate two strings:```java\nString firstName = \"John \";\r\nString lastName = \"Doe\";\r\nSystem.out.println(firstName.concat(lastName));```",
+                "Special Characters": "Because strings must be written within quotes, Java will misunderstand this string, and generate an error:```java\nString txt = \"We are the so-called \"Vikings\" from the north.\";```The solution to avoid this problem, is to use the backslash escape character.The backslash (\\) escape character turns special characters into string characters:The sequence \\\"\u00a0 inserts a double quote in a string:```java\nString txt = \"We are the so-called \\\"Vikings\\\" from the north.\";```The sequence \\'\u00a0 inserts a single quote in a string:```java\nString txt = \"It\\'s alright.\";```The sequence \\\\\u00a0 inserts a single backslash in a string:```java\nString txt = \"The character \\\\ is called backslash.\";```Six other escape sequences are valid in Java:",
+                "Adding Numbers and Strings": "If you add two numbers, the result will be a number:```java\nint x = 10;\r\nint y = 20;\r\nint z = x + y;      // z will be 30 (an integer/number)```If you add two strings, the result will be a string concatenation:```java\nString x = \"10\";\r\nString y = \"20\";\r\nString z = x + y;   // z will be 1020 (a String)```If you add a number and a string, the result will be a string concatenation:```java\nString x = \"10\";\r\nint y = 20;\r\nString z = x + y;   // z will be 1020 (a String)```"
+            }
+        },
+        "math": {
+            "title": "Java Math",
+            "url": "https://www.w3schools.com/java/java_math.asp",
+            "info": {
+                "Math.max(x,y)": "The Math.max(x,y) method can be used to find the highest value of x andy:```java\nMath.max(5, 10);```",
+                "Math.min(x,y)": "The Math.min(x,y) method can be used to find the lowest value of of x and y:```java\nMath.min(5, 10);```",
+                "Math.sqrt(x)": "The Math.sqrt(x) method returns the square root of x:```java\nMath.sqrt(64);```",
+                "Math.abs(x)": "The Math.abs(x) method returns the absolute (positive) value of x:```java\nMath.abs(-4.7);```",
+                "Random Numbers": "Math.random() returns a random number between 0.0 (inclusive), and 1.0 (exclusive):```java\nMath.random();```To get more control over the random number, e.g. you only want a random number between 0 and 100, you can use the following formula:```java\nint randomNum = (int)(Math.random() * 101);  // 0 to 100```"
+            }
+        },
+        "booleans": {
+            "title": "Java Booleans",
+            "url": "https://www.w3schools.com/java/java_booleans.asp",
+            "info": {
+                "Java Booleans": "Very often, in programming, you will need a data type that can only have one of two values, like:For this, Java has a boolean data type, which can take the values true or false.",
+                "Boolean Values": "A boolean type is declared with the boolean keyword and can only take the values true or false:```java\nboolean isJavaFun = true;\r\nboolean isFishTasty = false;\r\nSystem.out.println(isJavaFun);     // Outputs true\r\nSystem.out.println(isFishTasty);   // Outputs false```However, it is more common to return boolean values from boolean expressions, for conditional testing(see below).",
+                "Boolean Expression": "A Boolean expression is a Java expression that returns a Boolean value: true or false.You can use a comparison operator, such as the greater than (>) operator to find out if an expression (or a variable) is true:```java\nint x = 10;\r\nint y = 9;\r\nSystem.out.println(x > y); // returns true, because 10 is higher than 9```Or even easier:```java\nSystem.out.println(10 > 9); // returns true, because 10 is higher than 9```In the examples below, we use the equal to (==) operator to evaluate an expression:```java\nint x = 10;\r\nSystem.out.println(x == 10); // returns true, because the value of x is equal to 10``````java\nSystem.out.println(10 == 15); // returns false, because 10 is not equal to 15```"
+            }
+        },
+        "if...else": {
+            "title": "Java If...Else",
+            "url": "https://www.w3schools.com/java/java_conditions.asp",
+            "info": {
+                "Java Conditions and If Statements": "Java supports the usual logical conditions from mathematics:You can use these conditions to perform different actions for different decisions.Java has the following conditional statements:",
+                "The if Statement": "Use the if statement to specify a block of Java code to be executed if a condition is true.```java\nif (condition) {// block of code to be executed if the condition is true\r\n}```In the example below, we test two values to find out if 20 is greater than 18. If the condition is true, print some text:```java\nif (20 > 18) {System.out.println(\"20 is greater than 18\");\r\n}```We can also test variables:```java\nint x = 20;\r\nint y = 18;\r\nif (x > y) {System.out.println(\"x is greater than y\");\r\n}```In the example above we use two variables, x and y, to test whether x is greater than y (using the > operator). As x is 20, and y is 18, and we know that 20 is greater than 18, we print to the screen that \"x is greater than y\".",
+                "The else Statement": "Use the else statement to specify a block of code to be executed if the condition is false.```java\nif (condition) {// block of code to be executed if the condition is true\r\n} else {// block of code to be executed if the condition is false\r\n}``````java\nint time = 20;\r\nif (time < 18) {System.out.println(\"Good day.\");\r\n} else {System.out.println(\"Good evening.\");\r\n}\r\n// Outputs \"Good evening.\"```In the example above, time (20) is greater than 18, so the condition is false. Because of this, we move on to the else condition and print to the screen \"Good evening\". If the time was less than 18, the program would print \"Good day\".",
+                "The else if Statement": "Use the else if statement to specify a new condition if the first condition is false.```java\nif (condition1) {// block of code to be executed if condition1 is true\r\n} else if (condition2) {// block of code to be executed if the condition1 is false and condition2 is true\r\n} else {// block of code to be executed if the condition1 is false and condition2 is false\r\n}``````java\nint time = 22;\r\nif (time < 10) {System.out.println(\"Good morning.\");\r\n} else if (time < 20) {System.out.println(\"Good day.\");\r\n} else {System.out.println(\"Good evening.\");\r\n}\r\n// Outputs \"Good evening.\"```In the example above, time (22) is greater than 10, so the first condition is false. The next condition, in the  else if statement, is also false, so we move on to the elsecondition since condition1 and condition2 is both false - and print to the screen \"Good evening\".However, if the time was 14, our program would print \"Good day.\"",
+                "Short Hand If...Else (Ternary Operator)": "There is also a short-hand if else, which is known as the ternary operator because it consists of three operands. It can be used to replace multiple lines of code with a single line. It is often used to replace simple if else statements:```java\nvariable = (condition) ? expressionTrue :  expressionFalse;```Instead of writing:```java\nint time = 20;\r\nif (time < 18) {System.out.println(\"Good day.\");\r\n} else {System.out.println(\"Good evening.\");\r\n}```You can simply write:```java\nint time = 20;\r\nString result = (time < 18) ? \"Good day.\" : \"Good evening.\";\r\nSystem.out.println(result);```"
+            }
+        },
+        "switch": {
+            "title": "Java Switch",
+            "url": "https://www.w3schools.com/java/java_switch.asp",
+            "info": {
+                "Java Switch Statements": "Use the switch statement to select one of many code blocks to be executed.```java\nswitch(expression) {case x:  // code block  break;case y:  // code block  break;default:  // code block\r\n}```This is how it works:The example below uses the weekday number to calculate the weekday name:```java\nint day = 4;\r\nswitch (day) {case 1:  System.out.println(\"Monday\");  break;case 2:  System.out.println(\"Tuesday\");  break;case 3:  System.out.println(\"Wednesday\");  break;case 4:  System.out.println(\"Thursday\");  break;case 5:  System.out.println(\"Friday\");  break;case 6:  System.out.println(\"Saturday\");  break;case 7:  System.out.println(\"Sunday\");  break;\r\n}\r\n// Outputs \"Thursday\" (day 4)```",
+                "The break Keyword": "When Java reaches a break keyword, it breaks out of the switch block.This will stop the execution of more code and case testing inside the block.When a match is found, and the job is done, it's time for a break. There is no need for more testing.",
+                "The default Keyword": "The default keyword specifies some code to run if there is no case match:```java\nint day = 4;\r\nswitch (day) {case 6:  System.out.println(\"Today is Saturday\");  break;case 7:  System.out.println(\"Today is Sunday\");  break;default:  System.out.println(\"Looking forward to the Weekend\");\r\n}\r\n// Outputs \"Looking forward to the Weekend\"```",
+                "Definition and Usage": "The switch keyword selects one of many code blocks to be executed.From the example above, it works like this:",
+                "Related Pages": "Read more about the switch statement in our Java Switch Tutorial.\u276e Java Keywords"
+            }
+        },
+        "whileloop": {
+            "title": "Java While Loop",
+            "url": "https://www.w3schools.com/java/java_while_loop.asp",
+            "info": {
+                "Loops": "Loops can execute a block of code as long as a specified condition is reached.Loops are handy because they save time, reduce errors, and they make code more readable.",
+                "Java While Loop": "The while loop loops through a block of code as long as a specified condition is true:```java\nwhile (condition) {// code block to be executed\r\n}```In the example below, the code in the loop will run, over and over again, as long as a variable (i) is less than 5:```java\nint i = 0;\r\nwhile (i < 5) {System.out.println(i);i++;\r\n}```",
+                "The Do/While Loop": "The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it willrepeat the loop as long as the condition is true.```java\ndo {// code block to be executed\r\n}\r\nwhile (condition);```The example below uses a do/while loop. The loop will always be executed at least once, even if the condition is false, because the code block is executed before the condition is tested:```java\nint i = 0;\ndo {System.out.println(i);i++;\r\n}\r\nwhile (i < 5);```"
+            }
+        },
+        "forloop": {
+            "title": "Java For Loop",
+            "url": "https://www.w3schools.com/java/java_for_loop.asp",
+            "info": {
+                "Java For Loop": "When you know exactly how many times you want to loop through a block of code, use the for loop instead of a while loop:```java\nfor (statement 1; statement 2; statement 3) {// code block to be executed\r\n }```Statement 1 is executed (one time) before the execution of the code block.Statement 2 defines the condition for executing the code block.Statement 3 is executed (every time) after the code block has been executed.The example below will print the numbers 0 to 4:```java\nfor (int i = 0; i < 5; i++) {System.out.println(i);\r\n}```Statement 1 sets a variable before the loop starts (int i = 0).Statement 2 defines the condition for the loop to run (i must be less than 5). If the condition is true, the loop will start over again, if it is false, the loop will end.Statement 3 increases a value (i++) each time the code block in the loop has been executed.",
+                "Another Example": "This example will only print even values between 0 and 10:```java\nfor (int i = 0; i <= 10; i = i + 2) {System.out.println(i);\r\n}```",
+                "For-Each Loop": "There is also a \"for-each\" loop, which is used exclusively to loop through elements in an array:```java\nfor (type variableName : arrayName) {// code block to be executed\r\n}```The following example outputs all elements in the cars array, using a \"for-each\" loop:```java\nString[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};\r\nfor (String i : cars) {System.out.println(i);\r\n}```"
+            }
+        },
+        "break/continue": {
+            "title": "Java Break/Continue",
+            "url": "https://www.w3schools.com/java/java_break.asp",
+            "info": {
+                "Java Break": "You have already seen the break statement used in an earlier chapter of this tutorial. It was used to \"jump out\" of a switch statement.The break statement can also be used to jump out of a loop.This example jumps out of the loop when i is equal to 4:```java\nfor (int i = 0; i < 10; i++) {if (i == 4) {  break;}System.out.println(i);\r\n}```",
+                "Java Continue": "The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.This example skips the value of 4:```java\nfor (int i = 0; i < 10; i++) {if (i == 4) {  continue;}System.out.println(i);\r\n}```",
+                "Break and Continue in While Loop": "You can also use break and continue in while loops:```java\nint i = 0;\r\nwhile (i < 10) {System.out.println(i);i++;if (i == 4) {  break;}\r\n}``````java\nint i = 0;\r\nwhile (i < 10) {if (i == 4) {  i++;  continue;}System.out.println(i);i++;\r\n}```"
+            }
+        },
+        "arrays": {
+            "title": "Java Arrays",
+            "url": "https://www.w3schools.com/java/java_arrays.asp",
+            "info": {
+                "Java Arrays": "Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.To declare an array, define the variable type with square brackets:```java\nString[] cars;```We have now declared a variable that holds an array of strings. To insert values to it, we can use an array literal - place the values in a comma-separated list, inside curly braces:```java\nString[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};```To create an array of integers, you could write:```java\nint[] myNum = {10, 20, 30, 40};```",
+                "Access the Elements of an Array": "You access an array element by referring to the index number.This statement accesses the value of the first element in cars:```java\nString[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};\r\nSystem.out.println(cars[0]);\r\n// Outputs Volvo```",
+                "Change an Array Element": "To change the value of a specific element, refer to the index number:```java\ncars[0] = \"Opel\";``````java\nString[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};\r\ncars[0] = \"Opel\";\r\nSystem.out.println(cars[0]);\r\n// Now outputs Opel instead of Volvo```",
+                "Array Length": " To find out how many elements an array has, use the length property:```java\nString[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};\r\nSystem.out.println(cars.length);\r\n// Outputs 4```",
+                "Loop Through an Array": "You can loop through the array elements with the for loop, and use the length property to specify how many times the loop should run.The following example outputs all elements in the cars array:```java\nString[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};\r\nfor (int i = 0; i < cars.length; i++) {System.out.println(cars[i]);\r\n}```",
+                "Loop Through an Array with For-Each": "There is also a \"for-each\" loop, which is used exclusively to loop through elements in arrays:```java\nfor (type variable : arrayname) {...\r\n}```The following example outputs all elements in the cars array, using a \"for-each\" loop:```java\nString[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};\r\nfor (String i : cars) {System.out.println(i);\r\n}```The example above can be read like this: for each String element (called i - as in index) in cars, print out the value of i.If you compare the for loop and for-each loop, you will see that the for-each method is easier to write, it does not require a counter (using the length property), and it is more readable.",
+                "Multidimensional Arrays": "A multidimensional array is an array containing one or more arrays.To create a two-dimensional array, add each array within its own set of curly braces:```java\nint[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };```myNumbers is now an array with two arrays as its elements.To access the elements of the myNumbers array, specify two indexes: one for the array, and one for the element inside that array. This example accesses the third element (2) in the second array (1) of myNumbers:```java\nint[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };\r\nint x = myNumbers[1][2];\r\nSystem.out.println(x); // Outputs 7```We can also use a for loop inside another for loop to get the elements of a two-dimensional array (we still have to point to the two indexes):```java\npublic class MyClass {public static void main(String[] args) {  int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };  for (int i = 0; i < myNumbers.length; ++i) {    for(int j = 0; j < myNumbers[i].length; ++j) {      System.out.println(myNumbers[i][j]);    }\n    }}\r\n}```"
+            }
+        },
+        "methods": {
+            "title": "Java Methods",
+            "url": "https://www.w3schools.com/java/java_methods.asp",
+            "info": {
+                "Create a Method": "A method must be declared within a class. It is defined with the name of the method, followed by parentheses (). Java provides some pre-defined methods, such as System.out.println(), but you can also create your own methods to perform certain actions:```java\npublic class MyClass {static void myMethod() {  // code to be executed}\r\n}```",
+                "Call a Method": "To call a method in Java, write the method's name followed by two parentheses () and a semicolon;In the following example, myMethod() is used to print a text (the action), when it is called:```java\npublic class MyClass {static void myMethod() {  System.out.println(\"I just got executed!\");}\r\npublic static void main(String[] args) {  myMethod();}\r\n}\r\n\r\n// Outputs \"I just got executed!\"```A method can also be called multiple times:```java\npublic class MyClass {static void myMethod() {  System.out.println(\"I just got executed!\");}\r\npublic static void main(String[] args) {  myMethod();  myMethod();  myMethod();}\r\n}\r\n\r\n// I just got executed!\r\n// I just got executed!\r\n// I just got executed!```"
+            }
+        },
+        "methodparameters": {
+            "title": "Java Method Parameters",
+            "url": "https://www.w3schools.com/java/java_methods_param.asp",
+            "info": {
+                "Parameters and Arguments": "Information can be passed to methods as parameter. Parameters act as variables inside the method.Parameters are specified after the method name, inside the parentheses.You can add as many parameters as you want, just separate them with a comma.The following example has a method that takes a String called fname as parameter.When the method is called, we pass along a first name,which is used inside the method to print the full name:```java\npublic class MyClass {static void myMethod(String fname) {  System.out.println(fname + \" Refsnes\");}\r\npublic static void main(String[] args) {  myMethod(\"Liam\");  myMethod(\"Jenny\");  myMethod(\"Anja\");}\r\n}\r\n// Liam Refsnes\r\n// Jenny Refsnes\r\n// Anja Refsnes```",
+                "Multiple Parameters": "You can have as many parameters as you like:```java\npublic class MyClass {static void myMethod(String fname, int age) {  System.out.println(fname + \" is \" + age);}\r\npublic static void main(String[] args) {  myMethod(\"Liam\", 5);  myMethod(\"Jenny\", 8);  myMethod(\"Anja\", 31);}\r\n}\r\n\r\n// Liam is 5\r\n// Jenny is 8\r\n// Anja is 31```",
+                "Return Values": "The void keyword, used in the examples above, indicates that the method should not return a value. If you want the method to return a value, you can use a primitive data type (such as int, char, etc.) instead of void, and use the return keyword inside the method:```java\npublic class MyClass {static int myMethod(int x) {  return 5 + x;}\r\npublic static void main(String[] args) {  System.out.println(myMethod(3));}\r\n}\r\n// Outputs 8 (5 + 3)```This example returns the sum of a method's two parameters:```java\npublic class MyClass {static int myMethod(int x, int y) {  return x + y;}\r\npublic static void main(String[] args) {  System.out.println(myMethod(5, 3));}\r\n}\r\n// Outputs 8 (5 + 3)```You can also store the result in a variable (recommended, as it is easier to read and maintain):```java\npublic class MyClass {static int myMethod(int x, int y) {  return x + y;}\r\npublic static void main(String[] args) {  int z = myMethod(5, 3);  System.out.println(z);}\r\n}\r\n// Outputs 8 (5 + 3)```",
+                "A Method with If...Else": "It is common to use if...else statements inside methods:```java\npublic class MyClass {\r\n// Create a checkAge() method with an integer variable called agestatic void checkAge(int age) {\r\n  // If age is less than 18, print \"access denied\"  if (age < 18) {    System.out.println(\"Access denied - You are not old enough!\");\r\n  // If age is greater than 18, print \"access granted\"  } else {    System.out.println(\"Access granted - You are old enough!\");  }\r\n}\r\npublic static void main(String[] args) {  checkAge(20); // Call the checkAge method and pass along an age of 20}\r\n}\r\n\r\n// Outputs \"Access granted - You are old enough!\"```"
+            }
+        },
+        "methodoverloading": {
+            "title": "Java Method Overloading",
+            "url": "https://www.w3schools.com/java/java_methods_overloading.asp",
+            "info": {
+                "Method Overloading": "With method overloading, multiple methods can have the same name with differentparameters:```java\nint myMethod(int x)\r\nfloat myMethod(float x)\r\ndouble myMethod(double x, double y)```Consider the following example, which have two methods that add numbers of different type:```java\nstatic int plusMethodInt(int x, int y) {return x + y;\r\n}\r\n\r\nstatic double plusMethodDouble(double x, double y) {return x + y;\r\n}\r\n\r\npublic static void main(String[] args) {int myNum1 = plusMethodInt(8, 5);double myNum2 = plusMethodDouble(4.3, 6.26);System.out.println(\"int: \" + myNum1);System.out.println(\"double: \" + myNum2);\r\n}```Instead of defining two methods that should do the same thing, it is better to overload one. In the example below, we overload the plusMethod method to work for both int and double:"
+            }
+        },
+        "scope": {
+            "title": "Java Scope",
+            "url": "https://www.w3schools.com/java/java_scope.asp",
+            "info": {
+                "Java Scope": "In Java, variables are only accessible inside the region they are created. This is calledscope.",
+                "Method Scope": "Variables declared directly inside a method are available anywhere in the method followingthe line of code in which they were declared.```java\npublic class MyClass {public static void main(String[] args) {\r\n  // Code here cannot use x\r\n  int x = 100;\r\n  // Code here can use x  System.out.println(x);}\r\n}```",
+                "Block Scope": "A block of code refers to all of the code between between curly braces {}. Variablesdeclared inside blocks of code are only accessible by the code between the curly braceswhich follows the line in which the variable was declared. A block of code may exist on itsown or it may belong to an if, while or for statement. In the case of for statements,variables declared in the statement itself are also available inside the block's scope.```java\npublic class MyClass {public static void main(String[] args) {\r\n  // Code here CANNOT use x\r\n  { // This is a block\r\n    // Code here CANNOT use x\r\n    int x = 100;\r\n    // Code here CAN use x    System.out.println(x);\r\n } // The block ends here\r\n  // Code here CANNOT use x}\r\n}```"
+            }
+        },
+        "recursion": {
+            "title": "Java Recursion",
+            "url": "https://www.w3schools.com/java/java_recursion.asp",
+            "info": {
+                "Java Recursion": "Recursion is the technique of making a function call itself. This technique provides a wayto break complicated problems down into simple problems which are easier to solve.Recursion may be a bit difficult to understand when encountering it for the first time, thebest way to figure out how it works is to experiment with it.",
+                "Recursion Example": "Adding two numbers together is easy to do, but adding a range of numbers is morecomplicated. In the following example, recursion is used to add a range of numberstogether by breaking it down into the simple task of adding two numbers:```java\npublic class MyClass {public static void main(String[] args) {  int result = sum(10);  System.out.println(result);}public static int sum(int k) {  if (k > 0) {    return k + sum(k - 1);  } else {    return 0;  }}\r\n}```When the sum() function is called, it adds parameter k to the sum of all numbers smallerthan k and returns the result. When k becomes 0, the function just returns 0. Whenrunning, the program follows these steps:Since the function does not call itself when k is 0, the program stops there and returns theresult.",
+                "Halting Condition": "Just as loops can run into the problem of infinite looping, recursive functions can run intothe problem of infinite recursion. Infinite recursion is when the function never stops callingitself. Every recursive function should have a halting condition, which is the conditionwhere the function stops calling itself. In the previous example, the halting condition iswhen the parameter k becomes 0.It is helpful to see a variety of different examples to better understand the concept. In thisexample, the function adds a range of numbers between a start and an end. The haltingcondition for this recursive function is when end is not greater than start:```java\npublic class MyClass {public static void main(String[] args) {  int result = sum(5, 10);  System.out.println(result);}public static int sum(int start, int end) {  if (end > start) {    return end + sum(start, end - 1);  } else {    return end;  }}\r\n}```"
+            }
+        },
+        "oop": {
+            "title": "Java OOP",
+            "url": "https://www.w3schools.com/java/java_oop.asp",
+            "info": {
+                "Java - What is OOP?": "OOP stands for Object-Oriented Programming.Procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.Object-oriented programming has several advantages over procedural programming:Tip: The \"Don't Repeat Yourself\" (DRY) principle is about reducing the repetition of code. You should extract out the codes that are common for the application, and place them at a single place and reuse them instead of repeating it.",
+                "Java - What are Classes and Objects?": "Classes and objects are the two main aspects of object-oriented programming.Look at the following illustration to see the difference between class and objects:Another example:So, a class is a template for objects, and an object is an instance of a class.When the individual objects are created, they inherit all the variables and methods from the class.You will learn much more about classes and objects in the next chapter."
+            }
+        },
+        "classes/objects": {
+            "title": "Java Classes/Objects",
+            "url": "https://www.w3schools.com/java/java_classes.asp",
+            "info": {
+                "Java Classes/Objects": "Java is an object-oriented programming language.Everything in Java is associated with classes and objects, along with its attributes and methods. For example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake. A Class is like an object constructor, or a \"blueprint\" for creating objects.",
+                "Create a Class": "To create a class, use the keyword class:```java\npublic class MyClass {int x = 5;\r\n}```",
+                "Create an Object": "In Java, an object is created from a class. We have already created the class named MyClass, so now we can use this to create objects.To create an object of MyClass, specify the class name, followed by the object name, and use the keyword new:```java\npublic class MyClass {int x = 5;\r\npublic static void main(String[] args) {  MyClass myObj = new MyClass();  System.out.println(myObj.x);}\r\n}```",
+                "Multiple Objects": "You can create multiple objects of one class:```java\npublic class MyClass {int x = 5;\r\npublic static void main(String[] args) {  MyClass myObj1 = new MyClass();  // Object 1  MyClass myObj2 = new MyClass();  // Object 2  System.out.println(myObj1.x);  System.out.println(myObj2.x);}\r\n}```",
+                "Using Multiple Classes": "You can also create an object of a class and access it in another class. This is often used for better organization of classes (one class has all the attributes and methods, while the other class holds the main() method (code to be executed)). Remember that the name of the java file should match the class name. In this example, we have created two files in the same directory/folder:```java\npublic class MyClass {int x = 5;\r\n}``````java\nclass OtherClass {public static void main(String[] args) {  MyClass myObj = new MyClass();  System.out.println(myObj.x);}\r\n}```When both files have been compiled:```java\nC:\\Users\\Your Name>javac MyClass.java\n\r\nC:\\Users\\Your Name>javac OtherClass.java```Run the OtherClass.java file:```java\nC:\\Users\\Your Name>java OtherClass```And the output will be:"
+            }
+        },
+        "classattributes": {
+            "title": "Java Class Attributes",
+            "url": "https://www.w3schools.com/java/java_class_attributes.asp",
+            "info": {
+                "Java Class Attributes": "In the previous chapter, we used the term \"variable\" for x in the example (as shown below). It is actually an attribute of the class. Or you could say that class attributes are variables within a class:```java\npublic class MyClass {int x = 5;int y = 3;\r\n}```",
+                "Accessing Attributes": "You can access attributes by creating an object of the class, and by using the dot syntax (.):The following example will create an object of the MyClass class, with the name myObj. We use the x attribute on the object to print its value:```java\npublic class MyClass {int x = 5;\r\npublic static void main(String[] args) {  MyClass myObj = new MyClass();  System.out.println(myObj.x);}\r\n}```",
+                "Modify Attributes": "You can also modify attribute values:```java\npublic class MyClass {int x;\r\npublic static void main(String[] args) {  MyClass myObj = new MyClass();  myObj.x = 40;  System.out.println(myObj.x);}\r\n}```Or override existing values:```java\npublic class MyClass {int x = 10;\r\npublic static void main(String[] args) {  MyClass myObj = new MyClass();  myObj.x = 25; // x is now 25  System.out.println(myObj.x);}\r\n}```If you don't want the ability to override existing values, declare the attribute as final:```java\npublic class MyClass {final int x = 10;\r\npublic static void main(String[] args) {  MyClass myObj = new MyClass();  myObj.x = 25; // will generate an error: cannot assign a value to a final variable  System.out.println(myObj.x);}\r\n}```",
+                "Multiple Objects": "If you create multiple objects of one class, you can change the attribute values in one object, without affecting the attribute values in the other:```java\npublic class MyClass {int x = 5;\r\npublic static void main(String[] args) {  MyClass myObj1 = new MyClass();  // Object 1  MyClass myObj2 = new MyClass();  // Object 2  myObj2.x = 25;  System.out.println(myObj1.x);  // Outputs 5  System.out.println(myObj2.x);  // Outputs 25}\r\n}```",
+                "Multiple Attributes": "You can specify as many attributes as you want:```java\npublic class Person {String fname = \"John\";String lname = \"Doe\";int age = 24;\r\npublic static void main(String[] args) {  Person myObj = new Person();  System.out.println(\"Name: \" + myObj.fname + \" \" + myObj.lname);  System.out.println(\"Age: \" + myObj.age);}\r\n}```"
+            }
+        },
+        "classmethods": {
+            "title": "Java Class Methods",
+            "url": "https://www.w3schools.com/java/java_class_methods.asp",
+            "info": {
+                "Java Class Methods": "You learned from the Java Methods chapter that methods are declared within a class, and that they are used to perform certain actions:```java\npublic class MyClass {static void myMethod() {  System.out.println(\"Hello World!\");}\r\n}```myMethod() prints a text (the action), when it is called. To call a method, write the method's name followed by two parentheses () and a semicolon;```java\npublic class MyClass {static void myMethod() {  System.out.println(\"Hello World!\");}\r\npublic static void main(String[] args) {  myMethod();}\r\n}\r\n\r\n// Outputs \"Hello World!\"```",
+                "Static vs. Non-Static": "You will often see Java programs that have either static or public attributes and methods.In the example above, we created a static method, which means that it can be accessed without creating an object of the class, unlike public, which can only be accessed by objects:```java\npublic class MyClass {// Static methodstatic void myStaticMethod() {  System.out.println(\"Static methods can be called without creating objects\");}\r\n// Public methodpublic void myPublicMethod() {  System.out.println(\"Public methods must be called by creating objects\");}\r\n// Main methodpublic static void main(String[] args) {  myStaticMethod(); // Call the static method  // myPublicMethod(); This would compile an error\r\n  MyClass myObj = new MyClass(); // Create an object of MyClass  myObj.myPublicMethod(); // Call the public method on the object}\r\n}```",
+                "Access Methods With an Object": "```java\n// Create a Car class\r\npublic class Car {\r\n // Create a fullThrottle() methodpublic void fullThrottle() {  System.out.println(\"The car is going as fast as it can!\");}\r\n// Create a speed() method and add a parameterpublic void speed(int maxSpeed) {  System.out.println(\"Max speed is: \" + maxSpeed);}\r\n// Inside main, call the methods on the myCar objectpublic static void main(String[] args) {  Car myCar = new Car();     // Create a myCar object  myCar.fullThrottle();      // Call the fullThrottle() method  myCar.speed(200);          // Call the speed() method}\r\n}\r\n\r\n// The car is going as fast as it can!\r\n// Max speed is: 200```1) We created a custom Car class with the class keyword.2) We created the fullThrottle() and speed() methods in the Car class.3) The fullThrottle() method and the speed() method will print out some text, when they are called.4) The speed() method accepts an int parameter called maxSpeed - we will use this in 8).5) In order to use the Car class and its methods, we need to create an object of the Car Class.6) Then, go to the main() method, which you know by now is a built-in Java method that runs your program (any code inside main is executed).7) By using the new keyword we created a Car object with the namemyCar.8) Then, we call the fullThrottle() and speed() methods on the myCar object, and run the program using the name of the object (myCar), followed by a dot (.), followed by the name of the method (fullThrottle(); and speed(200);). Notice that we add an int parameter of 200 inside the speed() method.",
+                "Using Multiple Classes": "Like we specified in the Classes chapter, it is a good practice to create an object of a class and access it in another class.Remember that the name of the java file should match the class name. In this example, we have created two files in the same directory:```java\npublic class Car {public void fullThrottle() {  System.out.println(\"The car is going as fast as it can!\");}\r\npublic void speed(int maxSpeed) {  System.out.println(\"Max speed is: \" + maxSpeed);}\r\n}``````java\nclass OtherClass {public static void main(String[] args) {  Car myCar = new Car();     // Create a myCar object  myCar.fullThrottle();      // Call the fullThrottle() method  myCar.speed(200);          // Call the speed() method}\r\n}```When both files have been compiled:```java\nC:\\Users\\Your Name>javac Car.java\n\r\nC:\\Users\\Your Name>javac OtherClass.java```Run the OtherClass.java file:```java\nC:\\Users\\Your Name>java OtherClass```And the output will be:"
+            }
+        },
+        "constructors": {
+            "title": "Java Constructors",
+            "url": "https://www.w3schools.com/java/java_constructors.asp",
+            "info": {
+                "Java Constructors": "A constructor in Java is a special method that is used to initialize objects. The constructor is called when an object of a class is created. It can be used to set initial values for object attributes:```java\n// Create a MyClass class\r\npublic class MyClass {int x;  // Create a class attribute\r\n// Create a class constructor for the MyClass classpublic MyClass() {  x = 5;  // Set the initial value for the class attribute x}\r\npublic static void main(String[] args) {  MyClass myObj = new MyClass(); // Create an object of class MyClass (This will call the constructor)  System.out.println(myObj.x); // Print the value of x}\r\n}\r\n\r\n// Outputs 5```",
+                "Constructor Parameters": "Constructors can also take parameters, which is used to initialize attributes.The following example adds an int y parameter to the constructor. Inside the constructor we set x to y (x=y). When we call the constructor, we pass a parameter to the constructor (5), which will set the value of x to 5:```java\npublic class MyClass {int x;\r\npublic MyClass(int y) {  x = y;}\r\npublic static void main(String[] args) {  MyClass myObj = new MyClass(5);  System.out.println(myObj.x);}\r\n}\r\n\r\n// Outputs 5```You can have as many parameters as you want:```java\npublic class Car {int modelYear;String modelName;\r\npublic Car(int year, String name) {  modelYear = year;  modelName = name;}\r\npublic static void main(String[] args) {  Car myCar = new Car(1969, \"Mustang\");  System.out.println(myCar.modelYear + \" \" + myCar.modelName);}\r\n}\r\n\r\n// Outputs 1969 Mustang```"
+            }
+        },
+        "modifiers": {
+            "title": "Java Modifiers",
+            "url": "https://www.w3schools.com/java/java_modifiers.asp",
+            "info": {
+                "Modifiers": "By now, you are quite familiar with the public keyword that appears in almost all of our examples:```java\npublic class MyClass```The public keyword is an access modifier, meaning that it is used to set the access level for classes, attributes, methods and constructors.We divide modifiers into two groups:",
+                "Access Modifiers": "For classes, you can use either public or default:For attributes, methods and constructors, you can use the one of the following:",
+                "Non-Access Modifiers": "For classes, you can use either final or abstract:For attributes and methods, you can use the one of the following:",
+                "Final": "If you don't want the ability to override existing attribute values, declare attributes as final:```java\npublic class MyClass {final int x = 10;final double PI = 3.14;\r\npublic static void main(String[] args) {  MyClass myObj = new MyClass();  myObj.x = 50; // will generate an error: cannot assign a value to a final variable  myObj.PI = 25; // will generate an error: cannot assign a value to a final variable  System.out.println(myObj.x);}\r\n}```",
+                "Static": "A static method means that it can be accessed without creating an object of the class, unlike public:```java\npublic class MyClass {// Static methodstatic void myStaticMethod() {  System.out.println(\"Static methods can be called without creating objects\");}\r\n// Public methodpublic void myPublicMethod() {  System.out.println(\"Public methods must be called by creating objects\");}\r\n// Main methodpublic static void main(String[ ] args) {  myStaticMethod(); // Call the static method  // myPublicMethod(); This would output an error\r\n  MyClass myObj = new MyClass(); // Create an object of MyClass  myObj.myPublicMethod(); // Call the public method}\r\n}```",
+                "Abstract": "An abstract method belongs to an abstract class, and it does not have a body. The body is provided by the subclass:```java\n// Code from filename: Person.java\r\n// abstract class\nabstract class Person {public String fname = \"John\";public int age = 24;public abstract void study(); // abstract method\r\n}\r\n\r\n// Subclass (inherit from Person)\r\nclass Student extends Person {public int graduationYear = 2018;public void study() { // the body of the abstract method is provided here  System.out.println(\"Studying all day long\");}\r\n}\r\n// End code from filename: Person.java\r\n\r\n// Code from filename: MyClass.java\r\nclass MyClass {public static void main(String[] args) {  // create an object of the Student class (which inherits attributes and methods from Person)  Student myObj = new Student();\r\n  System.out.println(\"Name: \" + myObj.fname);  System.out.println(\"Age: \" + myObj.age);  System.out.println(\"Graduation Year: \" + myObj.graduationYear);  myObj.study(); // call abstract method\n  }\r\n}```"
+            }
+        },
+        "encapsulation": {
+            "title": "Java Encapsulation",
+            "url": "https://www.w3schools.com/java/java_encapsulation.asp",
+            "info": {
+                "Encapsulation": "The meaning of Encapsulation, is to make sure that \"sensitive\" data is hidden from users. To achieve this, you must:",
+                "Get and Set": "You learned from the previous chapter that private variables can only be accessed within the same class (an outside class has no access to it). However, it is possible to access them if we provide public get and set methods.The get method returns the variable value, and the set method sets the value.Syntax for both is that they start with either get or set, followed by the name of the variable, with the first letter in upper case:```java\npublic class Person {private String name; // private = restricted access\r\n// Getterpublic String getName() {  return name;}\r\n// Setterpublic void setName(String newName) {  this.name = newName;}\r\n}```The get method returns the value of the variable name.The set method takes a parameter (newName) and assigns it to thename variable. The this keyword is used to refer to the current object.However, as the name variable is declared as private, we cannot access it from outside this class:If the variable was declared as public, we would expect the following output:However, as we try to access a private variable, we get an error:Instead, we use the getName() and setName() methods to acccess and update the variable:",
+                "Why Encapsulation?": ""
+            }
+        },
+        "packages/api": {
+            "title": "Java Packages / API",
+            "url": "https://www.w3schools.com/java/java_packages.asp",
+            "info": {
+                "Java Packages & API": "A package in Java is used to group related classes. Think of it asa folder in a file directory. We use packages to avoid name conflicts, and to write a better maintainable code. Packages are divided into two categories:",
+                "Built-in Packages": "The Java API is a library of prewritten classes, that are free to use, included in theJava Development Environment.The library contains components for managing input, database programming, and much much more. The complete list can be found at Oracles website: https://docs.oracle.com/javase/8/docs/api/.The library is divided into packages and classes. Meaning you can either import a single class (along with its methods and attributes), or a whole package that contain all the classes that belong to the specified package.To use a class or a package from the library, you need to use the import keyword:```java\nimport package.name.Class;   // Import a single class\r\nimport package.name.*;   // Import the whole package```",
+                "Import a Class": "If you find a class you want to use, for example, the Scanner class, which is used to get user input, write the following code:```java\nimport java.util.Scanner;```In the example above, java.util is a package, while Scanner is a class of the java.util package.To use the Scanner class, create an object of the class and use any of the available methods found in the Scanner class documentation. In our example, we will use the nextLine() method, which is used to read a complete line:```java\nimport java.util.Scanner;\r\n\r\nclass MyClass {public static void main(String[] args) {  Scanner myObj = new Scanner(System.in);  System.out.println(\"Enter username\");\r\n  String userName = myObj.nextLine();  System.out.println(\"Username is: \" + userName);}\r\n}```",
+                "Import a Package": "There are many packages to choose from. In the previous example, we used the Scanner class from the java.util package. This package also contains date and time facilities, random-number generator and other utility classes.To import a whole package, end the sentence with an asterisk sign (\\*). The following example will import ALL the classes in the java.util package:```java\nimport java.util.*;```",
+                "User-defined Packages": "To create your own package, you need to understand that Java uses a file system directory to store them. Just like folders on your computer:To create a package, use the package keyword:```java\npackage mypack;\r\nclass MyPackageClass {public static void main(String[] args) {  System.out.println(\"This is my package!\");}\r\n}```Save the file as MyPackageClass.java, and compile it:```java\nC:\\Users\\Your Name>javac MyPackageClass.java```Then compile the package:```java\nC:\\Users\\Your Name>javac -d . MyPackageClass.java```When we compiled the package in the example above, a new folder was created, called \"mypack\".To run the MyPackageClass.java file, write the following:```java\nC:\\Users\\Your Name>java mypack.MyPackageClass```The output will be:"
+            }
+        },
+        "inheritance": {
+            "title": "Java Inheritance",
+            "url": "https://www.w3schools.com/java/java_inheritance.asp",
+            "info": {
+                "Java Inheritance (Subclass and Superclass)": "In Java, it is possible to inherit attributes and methods from one class to another. We group the \"inheritance concept\" into two categories:To inherit from a class, use the extends keyword.In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):```java\nclass Vehicle {protected String brand = \"Ford\";        // Vehicle attributepublic void honk() {                    // Vehicle method  System.out.println(\"Tuut, tuut!\");}\r\n}\r\n\r\nclass Car extends Vehicle {private String modelName = \"Mustang\";    // Car attributepublic static void main(String[] args) {\r\n  // Create a myCar object  Car myCar = new Car();\r\n  // Call the honk() method (from the Vehicle class) on the myCar object  myCar.honk();\r\n  // Display the value of the brand attribute (from the Vehicle class) and the value of the modelName from the Car class  System.out.println(myCar.brand + \" \" + myCar.modelName);}\r\n}```",
+                "The final Keyword": "If you don't want other classes to inherit from a class, use the final keyword:```java\nfinal class Vehicle {...\r\n}\r\n\r\nclass Car extends Vehicle {...\r\n}```"
+            }
+        },
+        "polymorphism": {
+            "title": "Java Polymorphism",
+            "url": "https://www.w3schools.com/java/java_polymorphism.asp",
+            "info": {
+                "Java Polymorphism": "Polymorphism means \"many forms\", and it occurs when we have many classes that are related to each other by inheritance.Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.For example, think of a superclass called Animal that has a method called animalSound(). Subclasses of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.):```java\nclass Animal {public void animalSound() {  System.out.println(\"The animal makes a sound\");}\r\n}\r\n\r\nclass Pig extends Animal {public void animalSound() {  System.out.println(\"The pig says: wee wee\");}\r\n}\r\n\r\nclass Dog extends Animal {public void animalSound() {  System.out.println(\"The dog says: bow wow\");}\r\n}```Now we can create Pig and Dog objects and call the animalSound() method on both of them:"
+            }
+        },
+        "innerclasses": {
+            "title": "Java Inner Classes",
+            "url": "https://www.w3schools.com/java/java_inner_classes.asp",
+            "info": {
+                "Java Inner Classes": "In Java, it is also possible to nest classes (a class within a class). The purpose of nested classes is to group classes that belong together, which makes your code more readable and maintainable.To access the inner class, create an object of the outer class, and then create an object of the inner class:```java\nclass OuterClass {int x = 10;\r\nclass InnerClass {  int y = 5;}\r\n}\r\n\r\npublic class MyMainClass {public static void main(String[] args) {  OuterClass myOuter = new OuterClass();  OuterClass.InnerClass myInner = myOuter.new InnerClass();  System.out.println(myInner.y + myOuter.x);}\r\n}\r\n\r\n// Outputs 15 (5 + 10)```",
+                "Private Inner Class": "Unlike a \"regular\" class, an inner class can be private or protected. If you don't want outside objects to access the inner class, declare the class as private:```java\nclass OuterClass {int x = 10;\r\nprivate class InnerClass {  int y = 5;}\r\n}\r\n\r\npublic class MyMainClass {public static void main(String[] args) {  OuterClass myOuter = new OuterClass();  OuterClass.InnerClass myInner = myOuter.new InnerClass();  System.out.println(myInner.y + myOuter.x);}\r\n}```",
+                "Static Inner Class": "An inner class can also be static, which means that you can access it without creating an object of the outer class:```java\nclass OuterClass {int x = 10;\r\nstatic class InnerClass {  int y = 5;}\r\n}\r\n\r\npublic class MyMainClass {public static void main(String[] args) {  OuterClass.InnerClass myInner = new OuterClass.InnerClass();  System.out.println(myInner.y);}\r\n}\r\n\r\n// Outputs 5```",
+                "Access Outer Class From Inner Class": "One advantage of inner classes, is that they can access attributes and methods of the outer class:```java\nclass OuterClass {int x = 10;\r\nclass InnerClass {  public int myInnerMethod() {    return x;  }}\r\n}\r\n\r\npublic class MyMainClass {public static void main(String[] args) {  OuterClass myOuter = new OuterClass();  OuterClass.InnerClass myInner = myOuter.new InnerClass();  System.out.println(myInner.myInnerMethod());}\r\n}\r\n\r\n// Outputs 10```"
+            }
+        },
+        "abstraction": {
+            "title": "Java Abstraction",
+            "url": "https://www.w3schools.com/java/java_abstract.asp",
+            "info": {
+                "Java Abstract Classes and Methods": "Data abstraction is the process of hiding certain details and showing only essential information to the user.Abstraction can be achieved with either abstract classes or interfaces (which you will learn more about in the next chapter).The abstract keyword is a non-access modifier, used for classes and methods:An abstract class can have both abstract and regular methods:```java\nabstract class Animal {public abstract void animalSound();public void sleep() {  System.out.println(\"Zzz\");}\r\n}```From the example above, it is not possible to create an object of the Animal class:```java\nAnimal myObj = new Animal(); // will generate an error```To access the abstract class, it must be inherited from another class. Let's convert the Animal class we used in the Polymorphism chapter to an abstract class:"
+            }
+        },
+        "interface": {
+            "title": "Java Interface",
+            "url": "https://www.w3schools.com/java/java_interface.asp",
+            "info": {
+                "Java Interface": "Another way to achieve abstraction in Java, is with interfaces.An interface is a completely \"abstract class\" that is used to group related methods with empty bodies:```java\n// interface\r\ninterface Animal {public void animalSound(); // interface method (does not have a body)public void run(); // interface method (does not have a body)\r\n}```To access the interface methods, the interface must be \"implemented\" (kinda like inherited) by another class with the implements keyword (instead of extends). The body of the interface method is provided by the \"implement\" class:",
+                "Multiple Interfaces ": "To implement multiple interfaces, separate them with a comma:```java\ninterface FirstInterface {public void myMethod(); // interface method\r\n}\r\n\r\ninterface SecondInterface {public void myOtherMethod(); // interface method\r\n}\r\n\r\n// DemoClass \"implements\" FirstInterface and SecondInterface\r\nclass DemoClass implements FirstInterface, SecondInterface {public void myMethod() {  System.out.println(\"Some text..\");}public void myOtherMethod() {  System.out.println(\"Some other text...\");}\r\n}\r\n\r\nclass MyMainClass {public static void main(String[] args) {  DemoClass myObj = new DemoClass();  myObj.myMethod();  myObj.myOtherMethod();}\r\n}```",
+                "Definition and Usage": "The interface keyword is used to declare a special type of class that only contains abstract methods.To access the interface methods, the interface must be \"implemented\" (kinda like inherited) by another class with the implements keyword (instead of extends). The body of the interface method is provided by the \"implement\" class.",
+                "Related Pages": "Read more about interfaces in our Java Interface Tutorial.\u276e Java Keywords"
+            }
+        },
+        "enums": {
+            "title": "Java Enums",
+            "url": "https://www.w3schools.com/java/java_enums.asp",
+            "info": {
+                "Java Enums": "An enum is a special \"class\" that represents a group of constants (unchangeable variables, like final variables).To create an enum, use the enum keyword (instead of class or interface), and separate the constants with a comma. Note that they should be in uppercase letters:```java\nLevel myVar = Level.MEDIUM;```",
+                "Enum inside a Class": "You can also have an enum inside a class:```java\npublic class MyClass {enum Level {  LOW,  MEDIUM,  HIGH}\r\npublic static void main(String[] args) {  Level myVar = Level.MEDIUM;   System.out.println(myVar);}\r\n}```",
+                "Enum in a Switch Statement": "Enums are often used in switch statements to check for corresponding values:```java\nenum Level {LOW,MEDIUM,HIGH\r\n}\r\n\r\npublic class MyClass {public static void main(String[] args) {  Level myVar = Level.MEDIUM;\r\n  switch(myVar) {    case LOW:      System.out.println(\"Low level\");      break;    case MEDIUM:       System.out.println(\"Medium level\");      break;    case HIGH:      System.out.println(\"High level\");      break;  }}\r\n}```",
+                "Loop Through an Enum": "The enum type has a values() method, which returns an array of all enum constants. This method is useful when you want to loop through the constants of an enum:```java\nfor (Level myVar : Level.values()) {System.out.println(myVar);\r\n}```"
+            }
+        },
+        "userinput": {
+            "title": "Java User Input",
+            "url": "https://www.w3schools.com/java/java_user_input.asp",
+            "info": {
+                "Java User Input": "The Scanner class is used to get user input, and it is found in the java.util package.To use the Scanner class, create an object of the class and use any of the available methods found in the Scanner class documentation. In our example, we will use the nextLine() method, which is used to read Strings:```java\nimport java.util.Scanner;  // Import the Scanner class\r\n\r\nclass MyClass {public static void main(String[] args) {  Scanner myObj = new Scanner(System.in);  // Create a Scanner object  System.out.println(\"Enter username\");\r\n  String userName = myObj.nextLine();  // Read user input  System.out.println(\"Username is: \" + userName);  // Output user input}\r\n}```",
+                "Input Types": "In the example above, we used the nextLine() method, which is used to read Strings. To read other types, look at the table below:In the example below, we use different methods to read data of various types:```java\nimport java.util.Scanner;\r\n\r\nclass MyClass {public static void main(String[] args) {  Scanner myObj = new Scanner(System.in);\r\n  System.out.println(\"Enter name, age and salary:\");\r\n  // String input  String name = myObj.nextLine();\r\n  // Numerical input  int age = myObj.nextInt();  double salary = myObj.nextDouble();\r\n  // Output input by user  System.out.println(\"Name: \" + name);  System.out.println(\"Age: \" + age);  System.out.println(\"Salary: \" + salary);}\r\n}```"
+            }
+        },
+        "date": {
+            "title": "Java Date",
+            "url": "https://www.w3schools.com/java/java_date.asp",
+            "info": {
+                "Java Dates": "Java does not have a built-in Date class, but we can import the java.time package to work with the date and time API. The package includes many date and time classes. For example:",
+                "Display Current Date": "To display the current date, import the java.time.LocalDate class, and use its now() method:```java\nimport java.time.LocalDate; // import the LocalDate class\r\n\r\npublic class MyClass {public static void main(String[] args) {  LocalDate myObj = LocalDate.now(); // Create a date object  System.out.println(myObj); // Display the current date}\r\n}```",
+                "Display Current Time": "To display the current time (hour, minute, second, and nanoseconds), import the java.time.LocalTime class, and use its now() method:```java\nimport java.time.LocalTime; // import the LocalTime class\r\n\r\npublic class MyClass {public static void main(String[] args) {  LocalTime myObj = LocalTime.now();  System.out.println(myObj);}\r\n}```",
+                "Display Current Date and Time": "To display the current date and time, import the java.time.LocalDateTime class, and use its now() method:```java\nimport java.time.LocalDateTime; // import the LocalDateTime class\r\n\r\npublic class MyClass {public static void main(String[] args) {  LocalDateTime myObj = LocalDateTime.now();  System.out.println(myObj);}\r\n}```",
+                "Formatting Date and Time": "The \"T\" in the example above is used to separate the date from the time. You can use the DateTimeFormatter class with the ofPattern() method in the same package to format or parse date-time objects. The following example will remove both the \"T\" and nanoseconds from the date-time:```java\nimport java.time.LocalDateTime; // Import the LocalDateTime class\r\nimport java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class\r\n\r\npublic class MyClass {public static void main(String[] args) {  LocalDateTime myDateObj = LocalDateTime.now();  System.out.println(\"Before formatting: \" + myDateObj);  DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(\"dd-MM-yyyy HH:mm:ss\");\r\n  String formattedDate = myDateObj.format(myFormatObj);  System.out.println(\"After formatting: \" + formattedDate);}\r\n}```The ofPattern() method accepts all sorts of values, if you want to display the date and time in a different format. For example:"
+            }
+        },
+        "arraylist": {
+            "title": "Java ArrayList",
+            "url": "https://www.w3schools.com/java/java_arraylist.asp",
+            "info": {
+                "Java ArrayList": "The ArrayList class is a resizable array, which can be found in the java.util package.The difference between a built-in array and an ArrayList in Java, is that the size of an array cannot be modified (if you want to add or remove elements to/from an array, you have to create a new one). While elements can be added and removed from an ArrayList whenever you want. The syntax is also slightly different:```java\nimport java.util.ArrayList; // import the ArrayList class\r\n\r\nArrayList<String> cars = new ArrayList<String>(); // Create an ArrayList object```",
+                "Add Items": "The ArrayList class has many useful methods. For example, to add elements to the ArrayList, use the add() method:```java\nimport java.util.ArrayList;\r\n\r\npublic class MyClass {public static void main(String[] args) {  ArrayList<String> cars = new ArrayList<String>();  cars.add(\"Volvo\");  cars.add(\"BMW\");  cars.add(\"Ford\");  cars.add(\"Mazda\");  System.out.println(cars);}\r\n}```",
+                "Access an Item": "To access an element in the ArrayList, use the get() method and refer to the index number:```java\ncars.get(0);```",
+                "Change an Item": "To modify an element, use the set() method and refer to the index number:```java\ncars.set(0, \"Opel\");```",
+                "Remove an Item": "To remove an element, use the remove() method and refer to the index number:```java\ncars.remove(0);```To remove all the elements in the ArrayList, use the clear() method:```java\ncars.clear();```",
+                "ArrayList Size": "To find out how many elements an ArrayList have, use the size method:```java\ncars.size();```",
+                "Loop Through an ArrayList": "Loop through the elements of an ArrayList with a for loop, and use the size() method to specify how many times the loop should run:```java\npublic class MyClass {public static void main(String[] args) {  ArrayList<String> cars = new ArrayList<String>();  cars.add(\"Volvo\");  cars.add(\"BMW\");  cars.add(\"Ford\");  cars.add(\"Mazda\");  for (int i = 0; i < cars.size(); i++) {    System.out.println(cars.get(i));  }}\r\n}```You can also loop through an ArrayList with the for-each loop:```java\npublic class MyClass {public static void main(String[] args) {  ArrayList<String> cars = new ArrayList<String>();  cars.add(\"Volvo\");  cars.add(\"BMW\");  cars.add(\"Ford\");  cars.add(\"Mazda\");  for (String i : cars) {    System.out.println(i);  }}\r\n}```",
+                "Other Types": "Elements in an ArrayList are actually objects. In the examples above, we created elements (objects) of type \"String\". Remember that a String in Java is an object (not a primitive type). To use other types, such as int, you must specify an equivalent wrapper class: Integer. For other primitive types, use: Boolean for boolean, Character for char, Double for double, etc:```java\nimport java.util.ArrayList;\r\n\r\npublic class MyClass {public static void main(String[] args) {  ArrayList<Integer> myNumbers = new ArrayList<Integer>();  myNumbers.add(10);  myNumbers.add(15);  myNumbers.add(20);  myNumbers.add(25);  for (int i : myNumbers) {    System.out.println(i);  }}\r\n}```",
+                "Sort an ArrayList": "Another useful class in the java.util package is the Collections class, which include the sort() method for sorting lists alphabetically or numerically:```java\nimport java.util.ArrayList;\r\nimport java.util.Collections;  // Import the Collections class\r\n\r\npublic class MyClass {public static void main(String[] args) {  ArrayList<String> cars = new ArrayList<String>();  cars.add(\"Volvo\");  cars.add(\"BMW\");  cars.add(\"Ford\");  cars.add(\"Mazda\");  Collections.sort(cars);  // Sort cars  for (String i : cars) {    System.out.println(i);  }}\r\n}``````java\nimport java.util.ArrayList;\r\nimport java.util.Collections;  // Import the Collections class\r\n\r\npublic class MyClass {public static void main(String[] args) {  ArrayList<Integer> myNumbers = new ArrayList<Integer>();  myNumbers.add(33);  myNumbers.add(15);  myNumbers.add(20);  myNumbers.add(34);  myNumbers.add(8);  myNumbers.add(12);\r\n  Collections.sort(myNumbers);  // Sort myNumbers\r\n  for (int i : myNumbers) {    System.out.println(i);  }}\r\n}```"
+            }
+        },
+        "linkedlist": {
+            "title": "Java LinkedList",
+            "url": "https://www.w3schools.com/java/java_linkedlist.asp",
+            "info": {
+                "Java LinkedList": "In the previous chapter, you learned about the ArrayList class. The LinkedList class is almost identical to the ArrayList:```java\n// Import the LinkedList class\r\nimport java.util.LinkedList;\r\n\r\npublic class MyClass {public static void main(String[] args) {  LinkedList<String> cars = new LinkedList<String>();  cars.add(\"Volvo\");  cars.add(\"BMW\");  cars.add(\"Ford\");  cars.add(\"Mazda\");  System.out.println(cars);}\r\n}```",
+                "ArrayList vs. LinkedList": "The LinkedList class is a collection which can contain many objects of the same type,just like the ArrayList.The LinkedList class has all of the same methods as the ArrayList class becausethey both implement the List interface. This means that you can add items, changeitems, remove items and clear the list in the same way.However, while the ArrayList class and the LinkedList class can be used in the same way,they are built very differently.The ArrayList class has a regular array inside it. When an element is added, it is placedinto the array. If the array is not big enough, a new, larger array is created to replace theold one and the old one is removed.The LinkedList stores its items in \"containers.\" The list has a link to the first containerand each container has a link to the next container in the list. To add an element to the list,the element is placed into a new container and that container is linked to one of the othercontainers in the list.It is best to use an ArrayList when:It is best to use a LinkedList when:",
+                "LinkedList Methods": "For many cases, the ArrayList is more efficient as it is common to need access torandom items in the list, but the LinkedList provides several methods to do certainoperations more efficiently:"
+            }
+        },
+        "hashmap": {
+            "title": "Java HashMap",
+            "url": "https://www.w3schools.com/java/java_hashmap.asp",
+            "info": {
+                "Java HashMap": "In the ArrayList chapter, you learned that Arrays store items as an ordered collection, and you have to access them with an index number (int type).A HashMap however, store items in \"key/value\" pairs, and you can access them by an index of another type (e.g. a String).One object is used as a key (index) to another object (value). It can store different types: String keys and Integer values, or the same type, like: String keys and String values:```java\nimport java.util.HashMap; // import the HashMap class\r\n\r\nHashMap<String, String> capitalCities = new HashMap<String, String>();```",
+                "Add Items": "The HashMap class has many useful methods. For example, to add items to it, use the put() method:```java\n// Import the HashMap class\r\nimport java.util.HashMap;\r\n\r\npublic class MyClass {public static void main(String[] args) {  // Create a HashMap object called capitalCities  HashMap<String, String> capitalCities = new HashMap<String, String>();\r\n  // Add keys and values (Country, City)  capitalCities.put(\"England\", \"London\");  capitalCities.put(\"Germany\", \"Berlin\");  capitalCities.put(\"Norway\", \"Oslo\");  capitalCities.put(\"USA\", \"Washington DC\");  System.out.println(capitalCities);}\r\n}```",
+                "Access an Item": "To access a value in the HashMap, use the get() method and refer to its key:```java\ncapitalCities.get(\"England\");```",
+                "Remove an Item": "To remove an item, use the remove() method and refer to the key:```java\ncapitalCities.remove(\"England\");```To remove all items, use the clear() method:```java\ncapitalCities.clear();```",
+                "HashMap Size": "To find out how many items there are, use the size method:```java\ncapitalCities.size();```",
+                "Loop Through a HashMap": "Loop through the items of a HashMap with a for-each loop.Note: Use the keySet() method if you only want the keys, and use the values() method if you only want the values:```java\n// Print keys\r\nfor (String i : capitalCities.keySet()) {System.out.println(i);\r\n}``````java\n// Print values\r\nfor (String i : capitalCities.values()) {System.out.println(i);\r\n}``````java\n// Print keys and values\r\nfor (String i : capitalCities.keySet()) {System.out.println(\"key: \" + i + \" value: \" + capitalCities.get(i));\r\n}```",
+                "Other Types": "Keys and values in a HashMap are actually objects. In the examples above, we used objects of type \"String\". Remember that a String in Java is an object (not a primitive type). To use other types, such as int, you must specify an equivalent wrapper class: Integer. For other primitive types, use: Boolean for boolean, Character for char, Double for double, etc:```java\n// Import the HashMap class\r\nimport java.util.HashMap;\r\n\r\npublic class MyClass {public static void main(String[] args) {\r\n  // Create a HashMap object called people  HashMap<String, Integer> people = new HashMap<String, Integer>();\r\n\r\n  // Add keys and values (Name, Age)  people.put(\"John\", 32);  people.put(\"Steve\", 30);  people.put(\"Angie\", 33);\r\n  for (String i : people.keySet()) {    System.out.println(\"key: \" + i + \" value: \" + people.get(i));  }}\r\n}```"
+            }
+        },
+        "hashset": {
+            "title": "Java HashSet",
+            "url": "https://www.w3schools.com/java/java_hashset.asp",
+            "info": {
+                "Java HashSet": "A HashSet is a collection of items where every item is unique, and it is found in the java.util package:```java\nimport java.util.HashSet; // Import the HashSet class\r\n\r\nHashSet<String> cars = new HashSet<String>();```",
+                "Add Items": "The HashSet class has many useful methods. For example, to add items to it, use the add() method:```java\n// Import the HashSet class\r\nimport java.util.HashSet;\r\n\r\npublic class MyClass {public static void main(String[] args) {  HashSet<String> cars = new HashSet<String>();  cars.add(\"Volvo\");  cars.add(\"BMW\");  cars.add(\"Ford\");  cars.add(\"BMW\");  cars.add(\"Mazda\");  System.out.println(cars);}\r\n}```Note: In the example above, even though BMW is added twice it only appears once in the setbecause every item in a set has to be unique.",
+                "Check If an Item Exists": "To check whether an item exists in a HashSet, use the contains() method:```java\ncars.contains(\"Mazda\");```",
+                "Remove an Item": "To remove an item, use the remove() method:```java\ncars.remove(\"Volvo\");```To remove all items, use the clear() method:```java\ncars.clear();```",
+                "HashSet Size": "To find out how many items there are, use the size method:```java\ncars.size();```",
+                "Loop Through a HashSet": "Loop through the items of an HashSet with a for-each loop:```java\nfor (String i : cars) {System.out.println(i);\r\n}```",
+                "Other Types": "Items in an HashSet are actually objects. In the examples above, we created items (objects) of type \"String\". Remember that a String in Java is an object (not a primitive type). To use other types, such as int, you must specify an equivalent wrapper class: Integer. For other primitive types, use: Boolean for boolean, Character for char, Double for double, etc:```java\nimport java.util.HashSet;\r\n\r\npublic class MyClass {public static void main(String[] args) {\r\n  // Create a HashSet object called numbers  HashSet<Integer> numbers = new HashSet<Integer>();\r\n  // Add values to the set  numbers.add(4);  numbers.add(7);  numbers.add(8);\r\n  // Show which numbers between 1 and 10 are in the set  for(int i = 1; i <= 10; i++) {    if(numbers.contains(i)) {      System.out.println(i + \" was found in the set.\");    } else {      System.out.println(i + \" was not found in the set.\");    }  }}\r\n}```"
+            }
+        },
+        "iterator": {
+            "title": "Java Iterator",
+            "url": "https://www.w3schools.com/java/java_iterator.asp",
+            "info": {
+                "Java Iterator": "An Iterator is an object that can be used to loop through collections, like ArrayListand HashSet. It is called an \"iterator\" because \"iterating\" is the technical term for looping.To use an Iterator, you must import it from the java.util package.",
+                "Getting an Iterator": "The iterator() method can be used to get an Iterator for any collection:```java\n// Import the ArrayList class and the Iterator class\r\nimport java.util.ArrayList;\r\nimport java.util.Iterator;\r\n\r\npublic class MyClass {public static void main(String[] args) {\r\n  // Make a collection  ArrayList<String> cars = new ArrayList<String>();  cars.add(\"Volvo\");  cars.add(\"BMW\");  cars.add(\"Ford\");  cars.add(\"Mazda\");\r\n  // Get the iterator  Iterator<String> it = cars.iterator();\r\n  // Print the first item  System.out.println(it.next());}\r\n}```",
+                "Looping Through a Collection": "To loop through a collection, use the hasNext() and next() methods of the Iterator:```java\nwhile(it.hasNext()) {System.out.println(it.next());\r\n}```",
+                "Removing Items from a Collection": "Iterators are designed to easily change the collections that they loop through. The remove() method can remove items from a collection while looping.```java\nimport java.util.ArrayList;\r\nimport java.util.Iterator;\r\n\r\npublic class MyClass {public static void main(String[] args) {  ArrayList<Integer> numbers = new ArrayList<Integer>();  numbers.add(12);  numbers.add(8);  numbers.add(2);  numbers.add(23);  Iterator<Integer> it = numbers.iterator();  while(it.hasNext()) {    Integer i = it.next();    if(i < 10) {      it.remove();    }  }  System.out.println(numbers);}\r\n}```"
+            }
+        },
+        "wrapperclasses": {
+            "title": "Java Wrapper Classes",
+            "url": "https://www.w3schools.com/java/java_wrapper_classes.asp",
+            "info": {
+                "Java Wrapper Classes": "Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects.The table below shows the primitive type and the equivalent wrapper class:Sometimes you must use wrapper classes, for example when working with Collection objects, such as ArrayList, where primitive types cannot be used (the list can only store objects):```java\nArrayList<int> myNumbers = new ArrayList<int>(); // Invalid```",
+                "Creating Wrapper Objects": "To create a wrapper object, use the wrapper class instead of the primitive type. To get the value, you can just print the object:```java\npublic class MyClass {public static void main(String[] args) {  Integer myInt = 5;  Double myDouble = 5.99;  Character myChar = 'A';  System.out.println(myInt);  System.out.println(myDouble);  System.out.println(myChar);}\r\n}```Since you're now working with objects, you can use certain methods to get information about the specific object.For example, the following methods are used to get the value associated with the corresponding wrapper object: intValue(), byteValue(), shortValue(), longValue(), floatValue(), doubleValue(), charValue(), booleanValue().This example will output the same result as the example above:```java\npublic class MyClass {public static void main(String[] args) {  Integer myInt = 5;  Double myDouble = 5.99;  Character myChar = 'A';  System.out.println(myInt.intValue());  System.out.println(myDouble.doubleValue());  System.out.println(myChar.charValue());}\r\n}```Another useful method is the toString() method, which is used to convert wrapper objects to strings.In the following example, we convert an Integer to a String, and use the length() method of the String class to output the length of the \"string\":"
+            }
+        },
+        "exceptions": {
+            "title": "Java Exceptions",
+            "url": "https://www.w3schools.com/java/java_try_catch.asp",
+            "info": {
+                "Java Exceptions": "When executing Java code, different errors can occur: coding errors made by the programmer, errors due to wrong input, or other unforeseeable things.When an error occurs, Java will normally stop and generate an error message. The technical term for this is: Java will throw an exception (throw an error).",
+                "Java try and catch": "The try statement allows you to define a block of code to be tested for errors while it is being executed.The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.The try and catch keywords come in pairs:```java\ntry {//  Block of code to try\r\n}\r\ncatch(Exception e) {//  Block of code to handle errors\r\n}```Consider the following example:```java\npublic class MyClass {public static void main(String[ ] args) {  int[] myNumbers = {1, 2, 3};  System.out.println(myNumbers[10]); // error!}\r\n}```If an error occurs, we can use try...catch to catch the error and execute some code to handle it:```java\npublic class MyClass {public static void main(String[ ] args) {  try {    int[] myNumbers = {1, 2, 3};    System.out.println(myNumbers[10]);  } catch (Exception e) {    System.out.println(\"Something went wrong.\");  }}\r\n}```",
+                "Finally": "The finally statement lets you execute code, after try...catch, regardless of the result:```java\npublic class MyClass {public static void main(String[] args) {  try {    int[] myNumbers = {1, 2, 3};    System.out.println(myNumbers[10]);  } catch (Exception e) {    System.out.println(\"Something went wrong.\");  } finally {    System.out.println(\"The 'try catch' is finished.\");  }}\r\n}```",
+                "The throw keyword": "The throw statement allows you to create a custom error.The throw statement is used together with an exception type. There are many exception types available in Java: ArithmeticException, FileNotFoundException, ArrayIndexOutOfBoundsException, SecurityException, etc:```java\npublic class MyClass {static void checkAge(int age) {  if (age < 18) {    throw new ArithmeticException(\"Access denied - You must be at least 18 years old.\");  }  else {    System.out.println(\"Access granted - You are old enough!\");  }}\r\npublic static void main(String[] args) {  checkAge(15); // Set age to 15 (which is below 18...)}\r\n}```If age was 20, you would not get an exception:```java\ncheckAge(20);```"
+            }
+        },
+        "regex": {
+            "title": "Java RegEx",
+            "url": "https://www.w3schools.com/java/java_regex.asp",
+            "info": {
+                "What is a Regular Expression?": "A regular expression is a sequence of characters that forms a search pattern.When you search for data in a text, you can use this search pattern to describe what youare searching for.A regular expression can be a single character, or a more complicated pattern.Regular expressions can be used to perform all types of text search and text replaceoperations.Java does not have a built-in Regular Expression class, but we can import the java.util.regex package to work with regular expressions. The package includes the following classes:```java\nimport java.util.regex.Matcher;\r\nimport java.util.regex.Pattern;\r\n\r\npublic class MyClass {public static void main(String[] args) {  Pattern pattern = Pattern.compile(\"w3schools\", Pattern.CASE_INSENSITIVE);  Matcher matcher = pattern.matcher(\"Visit W3Schools!\");  boolean matchFound = matcher.find();  if(matchFound) {    System.out.println(\"Match found\");  } else {    System.out.println(\"Match not found\");  }}\r\n}\r\n// Outputs Match found```In this example, The word \"w3schools\" is being searched for in a sentence.First, the pattern is created using the Pattern.compile() method. The first parameterindicates which pattern is being searched for and the second parameter has a flag toindicates that the search should be case-insensitive. The second parameter is optional.The matcher() method is used to search for the pattern in a string. It returns a Matcherobject which contains information about the search that was performed.The find() method returns true if the pattern was found in the string and false if it was notfound.",
+                "Flags": "Flags in the compile() method change how the search is performed. Here are a few ofthem:",
+                "Regular Expression Patterns": "The first parameter of the Pattern.compile() method is the pattern. It describes whatis being searched for.Brackets are used to find a range of characters:",
+                "Metacharacters": "Metacharacters are characters with a special meaning:",
+                "Quantifiers": "Quantifiers define quantities:"
+            }
+        },
+        "threads": {
+            "title": "Java Threads",
+            "url": "https://www.w3schools.com/java/java_threads.asp",
+            "info": {
+                "Java Threads": "Threads allows a program to operate more efficiently by doing multiple things at the sametime.Threads can be used to perform complicated tasks in the background without interruptingthe main program.",
+                "Creating a Thread": "There are two ways to create a thread.It can be created by extending the Thread class and overriding its run() method:```java\npublic class MyClass extends Thread {public void run() {  System.out.println(\"This code is running in a thread\");}\r\n}```Another way to create a thread is to implement the Runnable interface:```java\npublic class MyClass implements Runnable {public void run() {  System.out.println(\"This code is running in a thread\");}\r\n}```",
+                "Running Threads": "If the class extends the Thread class, the thread can be run by creating an instance of theclass and call its start() method:```java\npublic class MyClass extends Thread {public static void main(String[] args) {  MyClass thread = new MyClass();  thread.start();  System.out.println(\"This code is outside of the thread\");}public void run() {  System.out.println(\"This code is running in a thread\");}\r\n}```If the class implements the Runnable interface, the thread can be run by passing aninstance of the class to a Thread object's constructor and then calling the thread'sstart() method:```java\npublic class MyClass implements Runnable {public static void main(String[] args) {  MyClass obj = new MyClass();  Thread thread = new Thread(obj);  thread.start();  System.out.println(\"This code is outside of the thread\");}public void run() {  System.out.println(\"This code is running in a thread\");}\r\n}```",
+                "Concurrency Problems": "Because threads run at the same time as other parts of the program, there is no way toknow in which order the code will run. When the threads and main program are readingand writing the same variables, the values are unpredictable. The problems that resultfrom this are called concurrency problems.```java\npublic class MyClass extends Thread {public static int amount = 0;\r\npublic static void main(String[] args) {  MyClass thread = new MyClass();  thread.start();  System.out.println(amount);  amount++;  System.out.println(amount);}\r\npublic void run() {  amount++;}\r\n}```To avoid concurrency problems, it is best to share as few attributes between threads aspossible. If attributes need to be shared, one possible solution is to use the isAlive()method of the thread to check whether the thread has finished running before using any attributes that the thread can change."
+            }
+        },
+        "lambda": {
+            "title": "Java Lambda",
+            "url": "https://www.w3schools.com/java/java_lambda.asp",
+            "info": {
+                "Java Lambda Expressions": "Lambda Expressions were added in Java 8.A lambda expression is a short block of code which takes in parameters and returns avalue. Lambda expressions are similar to methods, but they do not need a name and theycan be implemented right in the body of a method.",
+                "Syntax": "The simplest lambda expression contains a single parameter and an expression:```java\nparameter -> expression```To use more than one parameter, wrap them in parentheses:```java\n(parameter1, parameter2) -> expression```Expressions are limited. They have to immediately return a value, they cannot containvariables, assignments or statements such as if or for. In order to do more complexoperations, a code block can be used with curly braces. If the lambda expression needs toreturn a value then the code block should have a return statement.```java\n(parameter1, parameter2) -> { code block }```",
+                "Using Lambda Expressions": "Lambda expressions are usually passed as parameters to a function:```java\nimport java.util.ArrayList;\r\n\r\npublic class MyClass {public static void main(String[] args) {  ArrayList<Integer> numbers = new ArrayList<Integer>();  numbers.add(5);  numbers.add(9);  numbers.add(8);  numbers.add(1);  numbers.forEach( (n) -> { System.out.println(n); } );}\r\n}```Lambda expressions can be stored in variables if the variable's type is an interface whichhas only one method. The lambda expression should have the same number ofparameters and the same return type as that method. Java has many of these kinds ofinterfaces built in, such as the Consumer interface (found in the java.util package) used by lists.To use a lambda expression in a method, the method should have a parameter with asingle-method interface as its type. Calling the interface's method will run the lambdaexpression:"
+            }
+        },
+        "files": {
+            "title": "Java Files",
+            "url": "https://www.w3schools.com/java/java_files.asp",
+            "info": {
+                "Java File Handling": "The File class from the java.io package, allows us to work with files.To use the File class, create an object of the class, and specify the filename or directory name: ```java\nimport java.io.File;  // Import the File class\r\n\r\nFile myObj = new File(\"filename.txt\"); // Specify the filename```The File class has many useful methods for creating and getting information about files. For example:You will learn how to create, write, read and delete files in the next chapters:"
+            }
+        },
+        "create/writefiles": {
+            "title": "Java Create/Write Files",
+            "url": "https://www.w3schools.com/java/java_files_create.asp",
+            "info": {
+                "Create a File": "To create a file in Java, you can use the createNewFile() method. This method returns a boolean value: true if the file was successfully created, and false if the file already exists. Note that the method is enclosed in a try...catch block. This is necessary because it throws an IOException if an error occurs (if the file cannot be created for some reason):```java\nimport java.io.File;  // Import the File class\r\nimport java.io.IOException;  // Import the IOException class to handle errors\r\n\r\npublic class CreateFile {public static void main(String[] args) {  try {    File myObj = new File(\"filename.txt\");    if (myObj.createNewFile()) {      System.out.println(\"File created: \" + myObj.getName());    } else {      System.out.println(\"File already exists.\");    }  } catch (IOException e) {    System.out.println(\"An error occurred.\");    e.printStackTrace();  }}\r\n}```To create a file in a specific directory (requires permission), specify the path of the file and use double backslashes to escape the \"\\\" character (for Windows). On Mac and Linux you can just write the path, like: /Users/name/filename.txt",
+                "Write To a File": "In the following example, we use the FileWriter class together with its write() method to write some text to the file we created in the example above. Note that when you are done writing to the file, you should close it with the close() method:```java\nimport java.io.FileWriter;   // Import the FileWriter class\r\nimport java.io.IOException;  // Import the IOException class to handle errors\r\n\r\npublic class WriteToFile {public static void main(String[] args) {  try {    FileWriter myWriter = new FileWriter(\"filename.txt\");    myWriter.write(\"Files in Java might be tricky, but it is fun enough!\");    myWriter.close();    System.out.println(\"Successfully wrote to the file.\");  } catch (IOException e) {    System.out.println(\"An error occurred.\");    e.printStackTrace();  }}\r\n}```To read the file above, go to the Java Read Files chapter."
+            }
+        },
+        "readfiles": {
+            "title": "Java Read Files",
+            "url": "https://www.w3schools.com/java/java_files_read.asp",
+            "info": {
+                "Read a File": "In the previous chapter, you learned how to create and write to a file.In the following example, we use the Scanner class to read the contents of the text file we created in the previous chapter:```java\nimport java.io.File;  // Import the File class\r\nimport java.io.FileNotFoundException;  // Import this class to handle errors\r\nimport java.util.Scanner; // Import the Scanner class to read text files\r\n\r\npublic class ReadFile {public static void main(String[] args) {  try {    File myObj = new File(\"filename.txt\");    Scanner myReader = new Scanner(myObj);    while (myReader.hasNextLine()) {      String data = myReader.nextLine();      System.out.println(data);    }    myReader.close();  } catch (FileNotFoundException e) {    System.out.println(\"An error occurred.\");    e.printStackTrace();  }}\r\n}```",
+                "Get File Information": "To get more information about a file, use any of the File methods:```java\nimport java.io.File;  // Import the File class\r\n\r\npublic class GetFileInfo { \n  public static void main(String[] args) {  File myObj = new File(\"filename.txt\");  if (myObj.exists()) {    System.out.println(\"File name: \" + myObj.getName());    System.out.println(\"Absolute path: \" + myObj.getAbsolutePath());    System.out.println(\"Writeable: \" + myObj.canWrite());    System.out.println(\"Readable \" + myObj.canRead());    System.out.println(\"File size in bytes \" + myObj.length());  } else {    System.out.println(\"The file does not exist.\");  }}\r\n}```"
+            }
+        },
+        "deletefiles": {
+            "title": "Java Delete Files",
+            "url": "https://www.w3schools.com/java/java_files_delete.asp",
+            "info": {
+                "Delete a File": "To delete a file in Java, use the delete() method:```java\nimport java.io.File;  // Import the File class\r\n\r\npublic class DeleteFile {public static void main(String[] args) {   File myObj = new File(\"filename.txt\");   if (myObj.delete()) {     System.out.println(\"Deleted the file: \" + myObj.getName());  } else {    System.out.println(\"Failed to delete the file.\");  } } \r\n}```",
+                "Delete a Folder": "You can also delete a folder. However, it must be empty:```java\nimport java.io.File; \r\n\r\npublic class DeleteFolder {public static void main(String[] args) {   File myObj = new File(\"C:\\\\Users\\\\MyName\\\\Test\");   if (myObj.delete()) {     System.out.println(\"Deleted the folder: \" + myObj.getName());  } else {    System.out.println(\"Failed to delete the folder.\");  } } \r\n}```"
+            }
+        },
+        "addtwonumbers": {
+            "title": "Add Two Numbers",
+            "url": "https://www.w3schools.com/java/java_howto_add_two_numbers.asp",
+            "info": {
+                "Add Two Numbers": "Learn how to add two numbers in Java:```java\nint x = 5;\r\nint y = 6;\r\nint sum = x + y;\r\nSystem.out.println(sum); // Print the sum of x + y```",
+                "Add Two Numbers with User Input": "Learn how to add two numbers with user input:```java\nimport java.util.Scanner; // Import the Scanner class\r\n\r\nclass MyClass {public static void main(String[] args) {  int x, y, sum;  Scanner myObj = new Scanner(System.in); // Create a Scanner object  System.out.println(\"Type a number:\");  x = myObj.nextInt(); // Read user input\r\n  System.out.println(\"Type another number:\");  y = myObj.nextInt(); // Read user input\r\n  sum = x + y;  // Calculate the sum of x + y  System.out.println(\"Sum is: \" + sum); // Print the sum}\r\n}```"
+            }
+        },
+        "keywords": {
+            "title": "Java Keywords",
+            "url": "https://www.w3schools.com/java/java_ref_keywords.asp",
+            "info": {
+                "Java Reserved Keywords": "Java has a set of keywords that are reserved words that cannot be used as variables, methods, classes, or any other identifiers:Note: true, false, and null are not keywords, but they are literals and reserved words that cannot be used as identifiers."
+            }
+        },
+        "abstract": {
+            "title": "abstract",
+            "url": "https://www.w3schools.com/java/ref_keyword_abstract.asp",
+            "info": {
+                "Definition and Usage": "The abstract keyword is a non-access modifier, used for classes and methods.Class: An abstract class is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).Method: An abstract method can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).",
+                "Related Pages": "Read more about modifiers in our Java Modifiers Tutorial.\u276e Java Keywords"
+            }
+        },
+        "boolean": {
+            "title": "boolean",
+            "url": "https://www.w3schools.com/java/ref_keyword_boolean.asp",
+            "info": {
+                "Definition and Usage": "The boolean keyword is a data type that can only take the values true or false.Boolean values are mostly used for conditional testing (read the Java Booleans Tutorial for more information).",
+                "Related Pages": "Read more about data types in our Java Data Types Tutorial.Read more about booleans in our Java Booleans Tutorial.\u276e Java Keywords"
+            }
+        },
+        "break": {
+            "title": "break",
+            "url": "https://www.w3schools.com/java/ref_keyword_break.asp",
+            "info": {
+                "Definition and Usage": "The break keyword is used to break out afor loop, a while loop or a switch block.",
+                "More Examples": "```java\nint i = 0;\nwhile (i < 10) {System.out.println(i);i++;if (i == 4) {  break;}\r\n}```",
+                "Related Pages": "Use the continue keyword to end the current iteration in a loop, but continue with the next.Read more about for loops in our Java For Loops Tutorial.Read more about while loops in our Java While Loops Tutorial.Read more about break and continue in our Java Break Tutorial.\u276e Java Keywords"
+            }
+        },
+        "byte": {
+            "title": "byte",
+            "url": "https://www.w3schools.com/java/ref_keyword_byte.asp",
+            "info": {
+                "Definition and Usage": "The byte keyword is a data type that can store whole numbers from -128 to 127.",
+                "Related Pages": "Read more about data types in our Java Data Types Tutorial.\u276e Java Keywords"
+            }
+        },
+        "case": {
+            "title": "case",
+            "url": "https://www.w3schools.com/java/ref_keyword_case.asp",
+            "info": {
+                "Definition and Usage": "The case keyword marks a block of code in a switch statement.",
+                "Related Pages": "Read more about the switch statement in our Java Switch Tutorial.\u276e Java Keywords"
+            }
+        },
+        "catch": {
+            "title": "catch",
+            "url": "https://www.w3schools.com/java/ref_keyword_catch.asp",
+            "info": {
+                "Definition and Usage": "The catch keyword catches exceptions generated by try statements.The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.",
+                "Related Pages": "Read more about exceptions in our Java Try..Catch Tutorial.\u276e Java Keywords"
+            }
+        },
+        "char": {
+            "title": "char",
+            "url": "https://www.w3schools.com/java/ref_keyword_char.asp",
+            "info": {
+                "Definition and Usage": "The char keyword is a data type that is used to store a single character.A char value must be surrounded by single quotes, like 'A' or 'c'.",
+                "Related Pages": "Read more about data types in our Java Data Types Tutorial.\u276e Java Keywords"
+            }
+        },
+        "class": {
+            "title": "class",
+            "url": "https://www.w3schools.com/java/ref_keyword_class.asp",
+            "info": {
+                "Definition and Usage": "The class keyword is used to create a class.Every line of code that runs in Java must be inside a class. A class should always start with an uppercase first letter, and the name of the java file must match the class name.A class is like an object constructor. See the example below to see how we can use it to create an object.",
+                "More Examples": "```java\npublic class MyClass {int x = 5;\r\npublic static void main(String[] args) {  MyClass myObj = new MyClass();  System.out.println(myObj.x);}\r\n}```",
+                "Related Pages": "Read more about classes and objects in our Java Classes/Objects Tutorial.\u276e Java Keywords"
+            }
+        },
+        "continue": {
+            "title": "continue",
+            "url": "https://www.w3schools.com/java/ref_keyword_continue.asp",
+            "info": {
+                "Definition and Usage": "The continue keyword is used to end the current iteration in a for loop (or a while loop), and continues to the next iteration.",
+                "More Examples": "```java\nint i = 0;\nwhile (i < 10) {if (i == 4) {  i++;  continue;}System.out.println(i);i++;\r\n}```",
+                "Related Pages": "Use the break keyword to break out of a loop.Read more about for loops in our Java For Loops Tutorial.Read more about while loops in our Java While Loops Tutorial.Read more about break and continue in our Java Break Tutorial.\u276e Java Keywords"
+            }
+        },
+        "default": {
+            "title": "default",
+            "url": "https://www.w3schools.com/java/ref_keyword_default.asp",
+            "info": {
+                "Definition and Usage": "The default keyword the default block of code in a switch statement.The default keyword specifies some code to run if there is no case match in the switch.Note: if the default keyword is used as the last statement in a switch block, it does not need a break.",
+                "Related Pages": "Read more about the switch statement in our Java Switch Tutorial.\u276e Java Keywords"
+            }
+        },
+        "do": {
+            "title": "do",
+            "url": "https://www.w3schools.com/java/ref_keyword_do.asp",
+            "info": {
+                "Definition and Usage": "The do keyword is used together with while to create a do-while loop.The while loop loops through a block of code as long as a specified condition is true:The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it willrepeat the loop as long as the condition is true.Note: Do not forget to increase the variable used in the condition, otherwise the loop will never end!",
+                "Related Pages": "Read more about while loops in our Java While Loop Tutorial.\u276e Java Keywords"
+            }
+        },
+        "double": {
+            "title": "double",
+            "url": "https://www.w3schools.com/java/ref_keyword_double.asp",
+            "info": {
+                "Definition and Usage": "The double keyword is a data type that can store fractional numbers from 1.7e\u2212308 to 1.7e+308.Note that you should end the value with a \"d\":",
+                "Related Pages": "Read more about data types in our Java Data Types Tutorial.\u276e Java Keywords"
+            }
+        },
+        "else": {
+            "title": "else",
+            "url": "https://www.w3schools.com/java/ref_keyword_else.asp",
+            "info": {
+                "Definition and Usage": "The else statement specifies a block of Java code to be executed if a condition is false in an if statement.Java has the following conditional statements:",
+                "More Examples": "```java\nint time = 22;\r\nif (time < 10) {System.out.println(\"Good morning.\");\r\n} else if (time < 20) {System.out.println(\"Good day.\");\r\n} else {System.out.println(\"Good evening.\");\r\n}\r\n// Outputs \"Good evening.\"```",
+                "Related Pages": "Read more about conditions in our Java If...Else Tutorial.\u276e Java Keywords"
+            }
+        },
+        "enum": {
+            "title": "enum",
+            "url": "https://www.w3schools.com/java/ref_keyword_enum.asp",
+            "info": {
+                "Definition and Usage": "The enum keyword declares an enumerated (unchangeable) type.An enum is a special \"class\" that represents a group of constants (unchangeable variables, like final variables).To create an enum, use the enum keyword (instead of class or interface), and separate the constants with a comma. Note that they should be in uppercase letters.",
+                "Related Pages": "Read more about enums in our Java Enum Tutorial.\u276e Java Keywords"
+            }
+        },
+        "extends": {
+            "title": "extends",
+            "url": "https://www.w3schools.com/java/ref_keyword_extends.asp",
+            "info": {
+                "Definition and Usage": "The extends keyword extends a class (indicates that a class is inherited from another class).In Java, it is possible to inherit attributes and methods from one class to another. We group the \"inheritance concept\" into two categories:To inherit from a class, use the extends keyword.",
+                "Related Pages": "Read more about inheritance in our Java Inheritance Tutorial.\u276e Java Keywords"
+            }
+        },
+        "final": {
+            "title": "final",
+            "url": "https://www.w3schools.com/java/ref_keyword_final.asp",
+            "info": {
+                "Definition and Usage": "The final keyword is a non-access modifier used for classes, attributes and methods, which makes them non-changeable (impossible to inherit or override).The final keyword is useful when you want a variable to always store the same value, like PI (3.14159...).The final keyword is called a \"modifier\". You will learn more about these in the Java Modifiers Chapter.",
+                "Related Pages": "Read more about attributes our Java Class Attributes Tutorial.\u276e Java Keywords"
+            }
+        },
+        "finally": {
+            "title": "finally",
+            "url": "https://www.w3schools.com/java/ref_keyword_finally.asp",
+            "info": {
+                "Definition and Usage": "The finally keyword is used to execute code (used with exceptions - try..catch statements) no matter if there is an exception or not.",
+                "Related Pages": "Read more about exceptions in our Java Try..Catch Tutorial.\u276e Java Keywords"
+            }
+        },
+        "float": {
+            "title": "float",
+            "url": "https://www.w3schools.com/java/ref_keyword_float.asp",
+            "info": {
+                "Definition and Usage": "The float keyword is a data type that can store fractional numbers from 3.4e\u2212038 to 3.4e+038.Note that you should end the value with an \"f\":",
+                "Related Pages": "Read more about data types in our Java Data Types Tutorial.\u276e Java Keywords"
+            }
+        },
+        "for": {
+            "title": "for",
+            "url": "https://www.w3schools.com/java/ref_keyword_for.asp",
+            "info": {
+                "Definition and Usage": "The for loop loops through a block of code a number of times.From the example above:",
+                "More Examples": "There is also a \"for-each\" loop, which is used exclusively to loop through elements in an array:The following example outputs all elements in the cars array, using a \"for-each\" loop:```java\nString[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};\r\nfor (String i : cars) {System.out.println(i);\r\n}```",
+                "Related Pages": "Read more about for loops in our Java For Loop Tutorial.\u276e Java Keywords"
+            }
+        },
+        "if": {
+            "title": "if",
+            "url": "https://www.w3schools.com/java/ref_keyword_if.asp",
+            "info": {
+                "Definition and Usage": "The if statement specifies a block of Java code to be executed if a condition is true.Java has the following conditional statements:",
+                "More Examples": "```java\nint x = 20;\r\nint y = 18;\r\nif (x > y) {System.out.println(\"x is greater than y\");\r\n}``````java\nint time = 20;\r\nif (time < 18) {System.out.println(\"Good day.\");\r\n} else {System.out.println(\"Good evening.\");\r\n}\r\n// Outputs \"Good evening.\"``````java\nint time = 22;\r\nif (time < 10) {System.out.println(\"Good morning.\");\r\n} else if (time < 20) {System.out.println(\"Good day.\");\r\n} else {System.out.println(\"Good evening.\");\r\n}\r\n// Outputs \"Good evening.\"```",
+                "Related Pages": "Read more about conditions in our Java If...Else Tutorial.\u276e Java Keywords"
+            }
+        },
+        "implements": {
+            "title": "implements",
+            "url": "https://www.w3schools.com/java/ref_keyword_implements.asp",
+            "info": {
+                "Definition and Usage": "The implements keyword is used to implement an interface.The interface keyword is used to declare a special type of class that only contains abstract methods.To access the interface methods, the interface must be \"implemented\" (kinda like inherited) by another class with the implements keyword (instead of extends). The body of the interface method is provided by the \"implement\" class.",
+                "Multiple Interfaces ": "To implement multiple interfaces, separate them with a comma:```java\ninterface FirstInterface {public void myMethod(); // interface method\r\n}\r\n\r\ninterface SecondInterface {public void myOtherMethod(); // interface method\r\n}\r\n\r\n// DemoClass \"implements\" FirstInterface and SecondInterface\r\nclass DemoClass implements FirstInterface, SecondInterface {public void myMethod() {  System.out.println(\"Some text..\");}public void myOtherMethod() {  System.out.println(\"Some other text...\");}\r\n}\r\n\r\nclass MyMainClass {public static void main(String[] args) {  DemoClass myObj = new DemoClass();  myObj.myMethod();  myObj.myOtherMethod();}\r\n}```",
+                "Related Pages": "Read more about interfaces in our Java Interface Tutorial.\u276e Java Keywords"
+            }
+        },
+        "import": {
+            "title": "import",
+            "url": "https://www.w3schools.com/java/ref_keyword_import.asp",
+            "info": {
+                "Definition and Usage": "The import keyword is used to import a package, class or interface.",
+                "Related Pages": "Read more about packages in our Java Packages Tutorial.\u276e Java Keywords"
+            }
+        },
+        "instanceof": {
+            "title": "instanceof",
+            "url": "https://www.w3schools.com/java/ref_keyword_instanceof.asp",
+            "info": {
+                "Definition and Usage": "The instanceof keyword checks whether an object is an instance of a specific class or an interface.The instanceof keyword compares the instance with type. The return value is either true or false.",
+                "Related Pages": "Read more about objects in our Java Classes/Objects Tutorial.\u276e Java Keywords"
+            }
+        },
+        "int": {
+            "title": "int",
+            "url": "https://www.w3schools.com/java/ref_keyword_int.asp",
+            "info": {
+                "Definition and Usage": "The int keyword is a data type that can store whole numbers from -2147483648 to 2147483647.",
+                "Related Pages": "Read more about data types in our Java Data Types Tutorial.\u276e Java Keywords"
+            }
+        },
+        "long": {
+            "title": "long",
+            "url": "https://www.w3schools.com/java/ref_keyword_long.asp",
+            "info": {
+                "Definition and Usage": "The long keyword is a data type that can store whole numbers from -9223372036854775808 to 9223372036854775808.Note that you should end the value with an \"L\":",
+                "Related Pages": "Read more about data types in our Java Data Types Tutorial.\u276e Java Keywords"
+            }
+        },
+        "new": {
+            "title": "new",
+            "url": "https://www.w3schools.com/java/ref_keyword_new.asp",
+            "info": {
+                "Definition and Usage": "The new keyword creates new objects.",
+                "Related Pages": "Read more about objects in our Java Classes/Objects Tutorial.\u276e Java Keywords"
+            }
+        },
+        "package": {
+            "title": "package",
+            "url": "https://www.w3schools.com/java/ref_keyword_package.asp",
+            "info": {
+                "Definition and Usage": "The package keyword creates a package.",
+                "Related Pages": "Read more about packages in our Java Packages Tutorial.\u276e Java Keywords"
+            }
+        },
+        "private": {
+            "title": "private",
+            "url": "https://www.w3schools.com/java/ref_keyword_private.asp",
+            "info": {
+                "Definition and Usage": "The private keyword is an access modifier used for attributes, methods and constructors, making them only accessible within the declared class.",
+                "Related Pages": "Read more about modifiers in our Java Modifiers Tutorial.\u276e Java Keywords"
+            }
+        },
+        "protected": {
+            "title": "protected",
+            "url": "https://www.w3schools.com/java/ref_keyword_protected.asp",
+            "info": {
+                "Definition and Usage": "The protected keyword is an access modifier used for attributes, methods and constructors, making them accessible in the same package and subclasses.",
+                "Related Pages": "Read more about modifiers in our Java Modifiers Tutorial.\u276e Java Keywords"
+            }
+        },
+        "public": {
+            "title": "public",
+            "url": "https://www.w3schools.com/java/ref_keyword_public.asp",
+            "info": {
+                "Definition and Usage": "The public keyword is an access modifier used for classes, attributes, methods and constructors, making them accessible by any other class.",
+                "Related Pages": "Read more about modifiers in our Java Modifiers Tutorial.\u276e Java Keywords"
+            }
+        },
+        "return": {
+            "title": "return",
+            "url": "https://www.w3schools.com/java/ref_keyword_return.asp",
+            "info": {
+                "Definition and Usage": "The return keyword finished the execution of a method, and can be used to return a value from a method.",
+                "More Examples": "Tip: Use the void keyword to specify that a method should not have a return value:```java\npublic class MyClass {static void myMethod() {  System.out.println(\"I just got executed!\");}\r\npublic static void main(String[] args) {  myMethod();}\r\n}```",
+                "Related Pages": "Read more about methods in our Java Methods Tutorial.\u276e Java Keywords"
+            }
+        },
+        "short": {
+            "title": "short",
+            "url": "https://www.w3schools.com/java/ref_keyword_short.asp",
+            "info": {
+                "Definition and Usage": "The short keyword is a data type that can store whole numbers from -32768 to 32767.",
+                "Related Pages": "Read more about data types in our Java Data Types Tutorial.\u276e Java Keywords"
+            }
+        },
+        "static": {
+            "title": "static",
+            "url": "https://www.w3schools.com/java/ref_keyword_static.asp",
+            "info": {
+                "Definition and Usage": "The static keyword is a non-access modifier used for methods and attributes. Static methods/attributes can be accessed without creating an object of a class.",
+                "Related Pages": "Read more about modifiers in our Java Modifiers Tutorial.\u276e Java Keywords"
+            }
+        },
+        "super": {
+            "title": "super",
+            "url": "https://www.w3schools.com/java/ref_keyword_super.asp",
+            "info": {
+                "Definition and Usage": "The super keyword refers to superclass (parent) objects.It is used to call superclass methods, and to access the superclass constructor.The most common use of the super keyword is to eliminate the confusion between superclasses and subclasses that have methods with the same name.To understand the super keyword, you should have a basic understanding of Inheritance and Polymorphism.",
+                "Related Pages": "Read more about inheritance (subclasses and superclasses) in our Java Inheritance Tutorial.Read more about polymorphism in our Java Polymorphism Tutorial.\u276e Java Keywords"
+            }
+        },
+        "this": {
+            "title": "this",
+            "url": "https://www.w3schools.com/java/ref_keyword_this.asp",
+            "info": {
+                "Definition and Usage": "The this keyword refers to the current object in a method or constructor.The most common use of the this keyword is to eliminate the confusion between class attributes and parameters with the same name (because a class attribute is shadowed by a method or constructor parameter). If you omit the keyword in the example above, the output would be \"0\" instead of \"5\".this can also be used to:",
+                "Related Pages": "Read more about objects in our Java Classes/Objects Tutorial.Read more about constructors in our Java Constructors Tutorial.Read more about methods in our Java Methods Tutorial.\u276e Java Keywords"
+            }
+        },
+        "throw": {
+            "title": "throw",
+            "url": "https://www.w3schools.com/java/ref_keyword_throw.asp",
+            "info": {
+                "Definition and Usage": "The throw keyword is used to create a custom error.The throw statement is used together with an exception type. There are many exception types available in Java: ArithmeticException, ClassNotFoundException, ArrayIndexOutOfBoundsException, SecurityException, etc.The exception type is often used together with a custom method, like in the example above.Differences between throw and throws:",
+                "Related Pages": "Read more about exceptions in our Java Try..Catch Tutorial.\u276e Java Keywords"
+            }
+        },
+        "throws": {
+            "title": "throws",
+            "url": "https://www.w3schools.com/java/ref_keyword_throws.asp",
+            "info": {
+                "Definition and Usage": "The throws keyword indicates what exception type may be thrown by a method.There are many exception types available in Java: ArithmeticException, ClassNotFoundException, ArrayIndexOutOfBoundsException, SecurityException, etc.Differences between throw and throws:",
+                "Related Pages": "Read more about exceptions in our Java Try..Catch Tutorial.\u276e Java Keywords"
+            }
+        },
+        "try": {
+            "title": "try",
+            "url": "https://www.w3schools.com/java/ref_keyword_try.asp",
+            "info": {
+                "Definition and Usage": "The try keyword creates a try...catch statement.The try statement allows you to define a block of code to be tested for errors while it is being executed.The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.",
+                "Related Pages": "Read more about exceptions in our Java Try..Catch Tutorial.\u276e Java Keywords"
+            }
+        },
+        "void": {
+            "title": "void",
+            "url": "https://www.w3schools.com/java/ref_keyword_void.asp",
+            "info": {
+                "Definition and Usage": "The void keyword specifies that a method should not have a return value.",
+                "More Examples": "Tip: If you want a method to return a value, you can use a primitive data type (such as int, char, etc.) instead of void, and use the return keyword inside the method:```java\npublic class MyClass {static int myMethod(int x) {  return 5 + x;}\r\npublic static void main(String[] args) {  System.out.println(myMethod(3));}\r\n}\r\n// Outputs 8 (5 + 3)```",
+                "Related Pages": "Read more about methods in our Java Methods Tutorial.\u276e Java Keywords"
+            }
+        },
+        "while": {
+            "title": "while",
+            "url": "https://www.w3schools.com/java/ref_keyword_while.asp",
+            "info": {
+                "Definition and Usage": "The while loop loops through a block of code as long as a specified condition is true.Note: Do not forget to increase the variable used in the condition, otherwise the loop will never end!",
+                "More Examples": "The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it willrepeat the loop as long as the condition is true:```java\nint i = 0;\r\ndo {System.out.println(i);i++;\r\n}\r\nwhile (i < 5);```",
+                "Related Pages": "Read more about while loops in our Java While Loop Tutorial.\u276e Java Keywords"
+            }
+        },
+        "stringmethods": {
+            "title": "Java String Methods",
+            "url": "https://www.w3schools.com/java/java_ref_string.asp",
+            "info": {
+                "All String Methods": "The String class has a set of built-in methods that you can use on strings."
+            }
+        },
+        "mathmethods": {
+            "title": "Java Math Methods",
+            "url": "https://www.w3schools.com/java/java_ref_math.asp",
+            "info": {
+                "All Math Methods": "A list of all Math methods can be found in the table below:Note: All Math methods are static."
             }
         }
     }
